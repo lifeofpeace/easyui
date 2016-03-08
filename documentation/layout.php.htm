@@ -1,0 +1,202 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>layout - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>布局面版 - Layout</H3>
+<P><SPAN>使用$.</SPAN><SPAN>fn.layout.defaults重置默认值</SPAN><SPAN>。</SPAN><BR><BR><SPAN>布局</SPAN><SPAN>的</SPAN><SPAN>容器</SPAN><SPAN>，有多达</SPAN><SPAN>五个区域：</SPAN><SPAN>北部，南部</SPAN><SPAN>，</SPAN><SPAN>东部，</SPAN><SPAN>西部和</SPAN><SPAN>中心</SPAN><SPAN>。</SPAN><SPAN>是</SPAN><SPAN>必需的，但</SPAN><SPAN>中心区域</SPAN><SPAN>面板</SPAN><SPAN>边缘区域</SPAN><SPAN>面板</SPAN><SPAN>是可选</SPAN><SPAN>的</SPAN><SPAN>。</SPAN><SPAN>通过</SPAN><SPAN>拖动</SPAN><SPAN>它的边框</SPAN><SPAN>，</SPAN><SPAN>面板</SPAN><SPAN>，</SPAN><SPAN>可以</SPAN><SPAN>调整</SPAN><SPAN>每</SPAN><SPAN>一个</SPAN><SPAN>边缘</SPAN><SPAN>地区</SPAN><SPAN>，</SPAN><SPAN>他们</SPAN><SPAN>也</SPAN><SPAN>可以</SPAN><SPAN>点击</SPAN><SPAN>折叠</SPAN><SPAN>的崩溃而</SPAN><SPAN>触发</SPAN><SPAN>。</SPAN><SPAN>可以嵌套</SPAN><SPAN>的布局</SPAN><SPAN>，以便用户可以</SPAN><SPAN>建立</SPAN><SPAN>复杂的布局</SPAN><SPAN>，他希望</SPAN><SPAN>。</SPAN></P><IMG 
+src="images/layout.png" 
+tppabs="http://jeasyui.com/documentation/images/layout.png"> 
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="panel.php.htm">面版 - panel </A>
+  <LI><A href="resizable.php.htm">缩放 - resizable </A></LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<H5>Create Layout</H5>
+<P>1. 创建布局面板</P>
+<P>使用HTML标签创建布局面板，只须要对&lt;div&gt;标签引用'easyui-layout'类。</P><TEXTAREA class=html name=code-layout>	&lt;div id="cc" class="easyui-layout" style="width:600px;height:400px;"&gt;
+		&lt;div data-options="region:'north',title:'North Title',split:true" style="height:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'south',title:'South Title',split:true" style="height:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'west',title:'West',split:true" style="width:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>2. 
+<SPAN>创建</SPAN><SPAN>整个页面</SPAN><SPAN>的</SPAN><SPAN>布局</SPAN><SPAN>。</SPAN></P><TEXTAREA class=html name=code-layout>	&lt;body class="easyui-layout"&gt;
+		&lt;div data-options="region:'north',title:'North Title',split:true" style="height:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'south',title:'South Title',split:true" style="height:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'west',title:'West',split:true" style="width:100px;"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;"&gt;&lt;/div&gt;
+	&lt;/body&gt;
+</TEXTAREA> 
+<P>3. 
+<SPAN>创建</SPAN><SPAN>嵌套的布局</SPAN><SPAN>。</SPAN><BR><BR><SPAN>请注意，</SPAN><SPAN>west 
+</SPAN><SPAN>面板</SPAN><SPAN>的</SPAN><SPAN>内部布局将折叠</SPAN><SPAN>。</SPAN></P><TEXTAREA class=html name=code-layout>	&lt;body class="easyui-layout"&gt;
+		&lt;div data-options="region:'north'" style="height:100px"&gt;&lt;/div&gt;
+		&lt;div data-options="region:'center'"&gt;
+			&lt;div class="easyui-layout" data-options="fit:true"&gt;
+				&lt;div data-options="region:'west',collapsed:true" style="width:180px"&gt;&lt;/div&gt;
+				&lt;div data-options="region:'center'"&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+</TEXTAREA> 
+<P>4. <SPAN>用ajax加载<SPAN>内容</SPAN></SPAN></P>
+<P><SPAN>根据</SPAN><SPAN>面板</SPAN><SPAN>的</SPAN><SPAN>布局</SPAN><SPAN>。</SPAN><SPAN>每一个区域</SPAN><SPAN>的</SPAN><SPAN>面板</SPAN><SPAN>提供了内置的</SPAN><SPAN>支持</SPAN><SPAN>异步加载</SPAN><SPAN>URL</SPAN><SPAN>的</SPAN><SPAN>内容</SPAN><SPAN>。</SPAN><SPAN>用户可以</SPAN><SPAN>使用</SPAN><SPAN>异步</SPAN><SPAN>加载技术</SPAN><SPAN>，</SPAN><SPAN>其布局，</SPAN><SPAN>页面显示</SPAN><SPAN>速度更快</SPAN><SPAN>。</SPAN></P><TEXTAREA class=html name=code-layout>	&lt;body class="easyui-layout"&gt;
+		&lt;div data-options="region:'west',href:'west_content.php'" style="width:180px" /&gt;
+		&lt;div data-options="region:'center',href:'center_content.php'" /&gt;
+	&lt;/body&gt;
+</TEXTAREA> <BR>
+<H5><SPAN>Collpase</SPAN><SPAN>布局面板</SPAN></H5><TEXTAREA class=js name=code-layout>	$('#cc').layout();
+	// collapse the west panel
+	$('#cc').layout('collapse','west');
+</TEXTAREA> <BR>
+<H5>&nbsp;west <SPAN>面板</SPAN><SPAN>添加</SPAN><SPAN>工具按钮</SPAN></H5><TEXTAREA class=js name=code-layout>	$('#cc').layout('add',{
+		region: 'west',
+		width: 180,
+		title: 'West Title',
+		split: true,
+		tools: [{
+			iconCls:'icon-add',
+			handler:function(){alert('add')}
+		},{
+			iconCls:'icon-remove',
+			handler:function(){alert('remove')}
+		}]
+	});
+</TEXTAREA> 
+<P>&nbsp;</P>
+<H4>面板选项（Layout Options）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>fit</TD>
+    <TD>boolean</TD>
+    <TD><SPAN>如果</SPAN><SPAN>设置</SPAN><SPAN>为true，</SPAN><SPAN>设置</SPAN><SPAN>适合它的</SPAN><SPAN>父容器</SPAN><SPAN>的布局</SPAN><SPAN>尺寸</SPAN><SPAN>。<BR></SPAN><SPAN>在创建</SPAN><SPAN>布局</SPAN><SPAN 
+      class=atn>“body”</SPAN><SPAN>的</SPAN><SPAN>标签</SPAN><SPAN>，</SPAN><SPAN>它</SPAN><SPAN>会</SPAN><SPAN>自动</SPAN><SPAN>最大化</SPAN><SPAN>到全尺寸</SPAN><SPAN>的</SPAN><SPAN>整个页面</SPAN><SPAN>。</SPAN></TD>
+    <TD>false</TD></TR></TBODY></TABLE>
+<H4>区域<SPAN><FONT size=3>面板选项（</FONT></SPAN>Region Panel Options）</H4>
+<P><SPAN>区域</SPAN><SPAN>的</SPAN><SPAN>控制面板选项</SPAN><SPAN>中定义的</SPAN><SPAN>面板组件</SPAN><SPAN>，下面是</SPAN><SPAN>一些常见的</SPAN><SPAN>添加属性</SPAN><SPAN>：</SPAN></P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>title</TD>
+    <TD>string</TD>
+    <TD>布局面板的标题。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>region</TD>
+    <TD>string</TD>
+    <TD>定义布局面板的位置（方向），可以取下列值的其中之一：north, south, east, west, center。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>border</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将显示布局面板的边框。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>split</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true将显示一个分隔条，用户可以拖动分隔条来改变布局面板的尺寸。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>iconCls</TD>
+    <TD>string</TD>
+    <TD>一个用来显示布局面板头部图标的css类。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>href</TD>
+    <TD>string</TD>
+    <TD>一个用来从远程站点载入数据的超链接。</TD>
+    <TD>null</TD></TR></TBODY></TABLE>
+<H4>事件（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>none</TD>
+    <TD>设置布局面板的尺寸大小。</TD></TR>
+  <TR>
+    <TD>panel</TD>
+    <TD>region</TD>
+    <TD>返回特定的布局面板，'region'参数的可取值为：'north','south','east','west','center'。</TD></TR>
+  <TR>
+    <TD>collapse</TD>
+    <TD>region</TD>
+    <TD>折叠特定的布局面板，'region'参数的可取值为：'north','south','east','west'。</TD></TR>
+  <TR>
+    <TD>expand</TD>
+    <TD>region</TD>
+    <TD>延伸特定的布局面板，'region'参数的可取值为：'north','south','east','west'。</TD></TR>
+  <TR>
+    <TD>add</TD>
+    <TD>options</TD>
+    <TD><SPAN>添加一个</SPAN><SPAN>指定</SPAN><SPAN>的</SPAN><SPAN>面板</SPAN><SPAN>，</SPAN><SPAN>选项</SPAN><SPAN>参数</SPAN><SPAN>是</SPAN><SPAN>一个配置对象</SPAN><SPAN>，请参阅</SPAN><SPAN 
+      class=atn>“</SPAN><SPAN>选项</SPAN><SPAN>卡</SPAN><SPAN>面板的属性</SPAN><SPAN>，</SPAN><SPAN>更多的细节。</SPAN></TD></TR>
+  <TR>
+    <TD>remove</TD>
+    <TD>region</TD>
+    <TD><SPAN>删除</SPAN><SPAN>指定的</SPAN><SPAN>面板</SPAN><SPAN>，</SPAN><SPAN>在</SPAN><SPAN 
+      class=atn>“region”</SPAN><SPAN>参数</SPAN><SPAN>的可能值</SPAN><SPAN>：</SPAN>'north','south','east','west'.</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-layout');
+		</SCRIPT>
+</BODY></HTML>

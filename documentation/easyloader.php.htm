@@ -1,0 +1,152 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>easyloader - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>简单载入器 - EasyLoader</H3>
+<H4>使用方法（Usage）</H4>
+<H5>加载EasyUI模块</H5><PRE class=JScript name="code-easyloader">	easyloader.base = '../';    //设置easyui根目录
+	easyloader.load('messager', function(){        //载入特定模块
+		$.messager.alert('Title', 'load ok');
+	});
+</PRE>
+<H5>加载脚本使用绝对路径</H5><PRE class=JScript name="code-easyloader">	using('http://code.jquery.com/jquery-1.4.4.min.js', function(){
+		// ...
+	});
+</PRE>
+<H5>加载脚本使用相对路径</H5><PRE class=JScript name="code-easyloader">	// the script path relative to easyui directory
+	using('./myscript.js', function(){
+		// ...
+	});
+</PRE>
+<H4>属性（Properties)</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>modules</TD>
+    <TD>object</TD>
+    <TD>预定义模块。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>locales</TD>
+    <TD>object</TD>
+    <TD>预定义多语言。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>base</TD>
+    <TD>string</TD>
+    <TD>easyui根目录,必须以'/'结尾。</TD>
+    <TD>easyui根目录将会被自动设置为相对于easyload.js的位置。</TD></TR>
+  <TR>
+    <TD>theme</TD>
+    <TD>string</TD>
+    <TD>'themes'目录中的主题的名称。</TD>
+    <TD>default</TD></TR>
+  <TR>
+    <TD>css</TD>
+    <TD>boolean</TD>
+    <TD>定义是否在加载模块的同时加载css文件。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>locale</TD>
+    <TD>string</TD>
+    <TD>语言名称。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>timeout</TD>
+    <TD>number</TD>
+    <TD>超时单位为毫秒，出现超时就触发。</TD>
+    <TD>2000</TD></TR></TBODY></TABLE>
+<H4>预定义语言（Defined locales）</H4>
+<UL>
+  <LI>af 
+  <LI>bg 
+  <LI>ca 
+  <LI>cs 
+  <LI>cz 
+  <LI>da 
+  <LI>de 
+  <LI>en 
+  <LI>es 
+  <LI>fr 
+  <LI>nl 
+  <LI>tr 
+  <LI>zh_CN 
+  <LI>zh_TW </LI></UL>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>参数</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onProgress</TD>
+    <TD>name</TD>
+    <TD>当一个模块成功载入时触发。</TD></TR>
+  <TR>
+    <TD>onLoad</TD>
+    <TD>name</TD>
+    <TD>当一个模块及其所有依赖关系（可以理解为载入该模块所需要的其他模块、属性、方法等）载入时触发。</TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>参数</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>load</TD>
+    <TD>module, callback</TD>
+    <TD>载入特定的模块。当载入成功时将调用回调函数。<BR>有效的模块参数类型如下:<BR>单一的模块名称<BR>一个存储有模块名称的数组<BR>一个以'.css'结尾的样式文件<BR>一个以'.js'结尾的js文件</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-easyloader');
+		</SCRIPT>
+</BODY></HTML>

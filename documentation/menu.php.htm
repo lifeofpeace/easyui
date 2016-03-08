@@ -1,0 +1,269 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>menu - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>菜单 - Menu</H3>
+<P>使用$.fn.menu.defaults重载默认值。</P>
+<P>菜单通常用于上下文菜单。这是基本组件构建其他菜单组件如menubutton和splitbutton。它还可以用于导航和执行命令。<BR></P><IMG 
+src="images/menu.png" tppabs="http://jeasyui.com/documentation/images/menu.png"> 
+
+<H4>使用方法（Usage Example）</H4>
+<H5>创建菜单</H5>
+<P>使用HTML标签创建菜单必须对&lt;div&gt;标签引用'easyui-menu'类，每个菜单项都将使用&lt;div&gt;标签创建。 
+为菜单添加'iconCls'属性可以指定一个显示在菜单项左侧的图标。对菜单引用'menu-sep'类将生成一条菜单分隔线。 </P><TEXTAREA class=html name=code-menu>	&lt;div id="mm" class="easyui-menu" style="width:120px;"&gt;
+		&lt;div&gt;New&lt;/div&gt;
+		&lt;div&gt;
+			&lt;span&gt;Open&lt;/span&gt;
+			&lt;div style="width:150px;"&gt;
+				&lt;div&gt;&lt;b&gt;Word&lt;/b&gt;&lt;/div&gt;
+				&lt;div&gt;Excel&lt;/div&gt;
+				&lt;div&gt;PowerPoint&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div data-options="iconCls:'icon-save'"&gt;Save&lt;/div&gt;
+		&lt;div class="menu-sep"&gt;&lt;/div&gt;
+		&lt;div&gt;Exit&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>使用脚本创建菜单并且监听'onClick'事件。</P><TEXTAREA class=js name=code-menu>	$('#mm').menu({
+		onClick:function(item){
+			//...
+		}
+	});
+</TEXTAREA> <BR>
+<H5>显示菜单</H5>
+<P>当一个菜单创建完毕，它是隐藏而不可见的，调用'show'方法可以显示菜单。.</P><TEXTAREA class=js name=code-menu>	$('#mm').menu('show', {
+	  left: 200,
+	  top: 100
+	});
+</TEXTAREA> 
+<P>&nbsp;</P>
+<H4>菜单项（Menu Item）</H4>
+<P>菜单项代表一个单独的项目,是显示在一个菜单。它包含以下属性: </P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>id</TD>
+    <TD>string</TD>
+    <TD>菜单项“id”</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>text</TD>
+    <TD>string</TD>
+    <TD>菜单项名称。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>iconCls</TD>
+    <TD>string</TD>
+    <TD>一个CSS类在菜单项右边显示一个16 x16图标。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>href</TD>
+    <TD>string</TD>
+    <TD>设置单击菜单项链接。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>disabled</TD>
+    <TD>boolean</TD>
+    <TD>定义如果禁用菜单项。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>onclick</TD>
+    <TD>function</TD>
+    <TD>单击菜单项函数。</TD>
+    <TD></TD></TR></TBODY></TABLE>
+<H4>菜单属性（Menu Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>zIndex</TD>
+    <TD>number</TD>
+    <TD>菜单的z-index样式,从第一个菜单开始递增。</TD>
+    <TD>110000</TD></TR>
+  <TR>
+    <TD>left</TD>
+    <TD>number</TD>
+    <TD>菜单的左边距。</TD>
+    <TD>0</TD></TR>
+  <TR>
+    <TD>top</TD>
+    <TD>number</TD>
+    <TD>菜单的顶边距。</TD>
+    <TD>0</TD></TR></TBODY></TABLE>
+<H4>菜单事件（Menu Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onShow</TD>
+    <TD>none</TD>
+    <TD>当一个菜单被显示后触发。</TD></TR>
+  <TR>
+    <TD>onHide</TD>
+    <TD>none</TD>
+    <TD>在一个菜单被隐藏后触发。</TD></TR>
+  <TR>
+    <TD>onClick</TD>
+    <TD>item</TD>
+    <TD>当一个菜单被点击时触发。下面的例子显示了如何处理所有菜单项点击:<BR> <PRE>&lt;div class="easyui-menu" data-options="onClick:menuHandler" style="width:120px;"&gt;
+	&lt;div data-options="name:'new'"&gt;New&lt;/div&gt;
+	&lt;div data-options="name:'save',iconCls:'icon-save'"&gt;Save&lt;/div&gt;
+	&lt;div data-options="name:'print',iconCls:'icon-print'"&gt;Print&lt;/div&gt;
+	&lt;div class="menu-sep"&gt;&lt;/div&gt;
+	&lt;div data-options="name:'exit'"&gt;Exit&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+	function menuHandler(item){
+		alert(item.name)
+	}
+&lt;/script&gt;
+</PRE></TD></TR></TBODY></TABLE>
+<H4>菜单方法（Menu Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>show</TD>
+    <TD>pos</TD>
+    <TD>在一个特定的位置显示菜单。<BR>pos参数有2个属性：<BR>left：新的左边距。<BR>top：新的顶边距。</TD></TR>
+  <TR>
+    <TD>hide</TD>
+    <TD>none</TD>
+    <TD>隐藏一个菜单。</TD></TR>
+  <TR>
+    <TD>getItem</TD>
+    <TD>itemEl</TD>
+    <TD>获取菜单项数据并将其返回, 
+      数据包含以下属性：<BR>target：DOM对象，菜单项目。<BR>id：字符串，分配给元素的ID。<BR>text：字符串，菜单项的文本。<BR>href：字符串，超链接地址。<BR>disabled：布尔型，菜单项是启用还是禁用。<BR>onclick：函数, 
+      当用户点击菜单时将要执行的函数。<BR>iconCls：字符串，图标css类。<BR>下面的例子展示了如何通过id获取指定的项: <PRE>&lt;div id="mm" class="easyui-menu" style="width:120px"&gt;
+	&lt;div&gt;New&lt;/div&gt;
+	&lt;div id="m-open"&gt;Open&lt;/div&gt;
+	&lt;div&gt;Save&lt;/div&gt;
+&lt;/div&gt;
+</PRE><PRE>var itemEl = $('#m-open')[0];  // the menu item element
+var item = $('#mm').menu('getItem', itemEl);
+console.log(item);
+</PRE></TD></TR>
+  <TR>
+    <TD>setText</TD>
+    <TD>param</TD>
+    <TD>设置特定的菜单文本，'param'参数包含2个属性：<BR>target：DOM对象，将要被设置的菜单项。<BR>text：字符串，新的文本值。
+      <P>示例:</P><PRE>var item = $('#mm').menu('findItem', 'Save');
+$('#mm').menu('setText', {
+	target: item.target,
+	text: 'Saving'
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>setIcon</TD>
+    <TD>param</TD>
+    <TD>设置特定的菜单项图标，'param'参数包含2个属性：<BR>target：DOM对象，菜单项目。<BR>iconCls: 
+新的图标css类。
+      <P>示例:</P><PRE>$('#mm').menu('setIcon', {
+	target: $('#m-open')[0],
+	iconCls: 'icon-closed'
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>findItem</TD>
+    <TD>text</TD>
+    <TD>查找特定的菜单项，和getItem方法返回的对象相同。
+      <P>示例:</P><PRE>// find 'Open' item and disable it
+var item = $('#mm').menu('findItem', 'Open');
+$('#mm').menu('disableItem', item.target);
+</PRE></TD></TR>
+  <TR>
+    <TD>appendItem</TD>
+    <TD>options</TD>
+    <TD>添加一个新的菜单项,“param”参数表示新条目属性。默认情况下,添加项目将成为一个顶级菜单项。附加的子菜单项,父属性应该设置为指定父条目元素,已经有子条目。<BR>'param'参数包含以下属性：<BR>parent: 
+      待添加新菜单的DOM对象，如果没有被设置，新菜单项将会被作为顶级菜单添加。<BR>text：字符串，菜单项文本。<BR>href：字符串，超链接地址。<BR>onclick：字符串或者函数，当用户点击菜单项时将要被执行的脚本代码或者函数。<BR>iconCls:&nbsp;图标类。<BR>
+      <P>示例:</P><PRE>// append a top menu item
+$('#mm').menu('appendItem', {
+	text: 'New Item',
+	iconCls: 'icon-ok',
+	onclick: function(){alert('New Item')}
+});
+</PRE><PRE>// append a sub menu item
+var item = $('#mm').menu('findItem', 'Open');  // find 'Open' item
+$('#mm').menu('appendItem', {
+	parent: item.target,  // the parent item element
+	text: 'Open Excel',
+	iconCls: 'icon-excel',
+	onclick: function(){alert('Open Excel')}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>removeItem</TD>
+    <TD>itemEl</TD>
+    <TD>移除特定的菜单项。</TD></TR>
+  <TR>
+    <TD>enableItem</TD>
+    <TD>itemEl</TD>
+    <TD>启用菜单项。</TD></TR>
+  <TR>
+    <TD>disableItem</TD>
+    <TD>itemEl</TD>
+    <TD>禁用菜单项。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-menu');
+		</SCRIPT>
+</BODY></HTML>

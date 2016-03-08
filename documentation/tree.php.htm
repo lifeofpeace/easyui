@@ -1,0 +1,580 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>tree - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<H3 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">树形菜单 
+- Tree</H3>
+<P 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">使用$.fn.tree.defaults重载默认值。</P>
+<P 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">树形菜单用于web页面以一个树形结构显示分层数据。它提供了用户扩展,折叠,拖拽、编辑和异步加载功能。<BR></P>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px"><IMG 
+src="images/tree.png" tppabs="http://jeasyui.com/documentation/images/tree.png"> 
+</DIV>
+<H4 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">依赖组件（Dependencies）</H4>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<UL>
+  <LI>draggable 
+  <LI>droppable </LI></UL></DIV>
+<H4>使用方法（Usage Example）</H4>
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">Tree 
+可以在&lt;ul&gt;元素定义,标记可以定义叶子节点,子节点,节点可以是li元素和内置的ul的列表,下面展示的元素使树节点内嵌ul元素</SPAN>. 
+</P><TEXTAREA class=html name=code-tree>	&lt;ul id="tt" class="easyui-tree"&gt;
+		&lt;li&gt;
+			&lt;span&gt;Folder&lt;/span&gt;
+			&lt;ul&gt;
+				&lt;li&gt;
+					&lt;span&gt;Sub Folder 1&lt;/span&gt;
+					&lt;ul&gt;
+						&lt;li&gt;
+							&lt;span&gt;&lt;a href="#"&gt;File 11&lt;/a&gt;&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span&gt;File 12&lt;/span&gt;
+						&lt;/li&gt;
+						&lt;li&gt;
+							&lt;span&gt;File 13&lt;/span&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;span&gt;File 2&lt;/span&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;span&gt;File 3&lt;/span&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;span&gt;File21&lt;/span&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+</TEXTAREA> 
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">Tree 
+也可以在一个空的ul元素中定义和使用javascript加载数据</SPAN>.</P><TEXTAREA class=html name=code-tree>	&lt;ul id="tt"&gt;&lt;/ul&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-tree>	$('#tt').tree({
+		url:'tree_data.json'
+	});
+</TEXTAREA> 
+<P>使用<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">loadFilter处理<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;ASP.NET 
+web services输出的json数据</SPAN></SPAN>.</P><TEXTAREA class=js name=code-tree>	$('#tt').tree({
+		url: ...,
+		loadFilter: function(data){
+			if (data.d){
+				return data.d;
+			} else {
+				return data;
+			}
+		}
+	});
+</TEXTAREA> <BR>
+<H4>
+<H4 
+style="TEXT-ALIGN: left; MARGIN: 10px 0px; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; COLOR: rgb(204,0,0); FONT-SIZE: 16px">Tree 
+数据转换</H4></H4>
+<P>所有节点都包含以下属性: </P>
+<P></P>
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"></SPAN></SPAN></SPAN></SPAN></P>
+<UL 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">
+  <LI>id:节点id,这个很重要到加载远程服务器数据 which is important to load remote data</LI>
+  <LI>text: 显示的节点文本</LI>
+  <LI>state: 节点状态, 'open' 或者 'closed', 默认是 'open'. 当设置为 'closed', 
+  节点所有的子节点将从远程服务器站点加载</LI>
+  <LI>checked: 指明检查节点是否选中.</LI>
+  <LI>attributes: 可以添加到节点的自定义属性</LI>
+  <LI>children: 一个节点数组,定义一些子节点</LI></UL>
+<P>一些示例:</P><TEXTAREA class=js name=code-tree>	[{
+		"id":1,
+		"text":"Folder1",
+		"iconCls":"icon-save",
+		"children":[{
+			"text":"File1",
+			"checked":true
+		},{
+			"text":"Books",
+			"state":"open",
+			"attributes":{
+				"url":"/demo/book/abc",
+				"price":100
+			},
+			"children":[{
+				"text":"PhotoShop",
+				"checked":true
+			},{
+				"id": 8,
+				"text":"Sub Bookds",
+				"state":"closed"
+			}]
+		}]
+	},{
+		"text":"Languages",
+		"state":"closed",
+		"children":[{
+			"text":"Java"
+		},{
+			"text":"C#"
+		}]
+	}]
+</TEXTAREA> <BR>
+<H4>
+<H4 
+style="TEXT-ALIGN: left; MARGIN: 10px 0px; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; COLOR: rgb(204,0,0); FONT-SIZE: 16px">异步加载 
+Tree</H4></H4>
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">tree 
+支持内置的异步加载模式,用户创建一个空的<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">tree,然后定义一个远程服务器站点返回json数据用于填充tree来异步满足异步加载需求.例如</SPAN></SPAN>: 
+</P><TEXTAREA class=html name=code-tree>	&lt;ul class="easyui-tree" data-options="url:'get_data.php'"&gt;&lt;/ul&gt;
+</TEXTAREA> 
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">tree</SPAN>的加载是通过URL<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;'get_data.php'站点.<SPAN 
+style="COLOR: #ff0000">子节点的加载依赖于父节点的状态</SPAN>.当展开一个关闭节点,如果节点没有子节点加载,将发送节点id值作为http参数,参数命名为'id'到远程服务器,通过以上URL定义.检索子节点数据</SPAN></SPAN><BR>看看这个从服务器返回的数据:</P><TEXTAREA class=js name=code-tree>	[{
+		"id": 1,
+		"text": "Node 1",
+		"state": "closed",
+		"children": [{
+			"id": 11,
+			"text": "Node 11"
+		},{
+			"id": 12,
+			"text": "Node 12"
+		}]
+	},{
+		"id": 2,
+		"text": "Node 2",
+		"state": "closed"
+	}]
+</TEXTAREA> 
+<P>节点1和节点2都是closed状态的,可以直接显示它们的子节点,当展开节点2时,发送值2到远程服务器检索子节点<BR>这个教程<A 
+href="http://www.jeasyui.com/tutorial/tree/tree2.php" target=_blank>创建异步的树click 
+me!!!</A>,展示如何写服务器端代码根据需求返回tree数据. </P>
+<H4>Properties</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>url</TD>
+    <TD>string</TD>
+    <TD>一个从远程服务器检索数据的URL.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>method</TD>
+    <TD>string</TD>
+    <TD>检索数据的http方法类型.</TD>
+    <TD>post</TD></TR>
+  <TR>
+    <TD>animate</TD>
+    <TD>boolean</TD>
+    <TD>定义当展开/折叠节点的时候是否显示效果.</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>checkbox</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示checkbox在所有节点之前.</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>cascadeCheck</TD>
+    <TD>boolean</TD>
+    <TD>定义是否级联选择.</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>onlyLeafCheck</TD>
+    <TD>boolean</TD>
+    <TD>定义是否仅仅只是在叶子节点显示checkbox</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>lines</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示树线.</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>dnd</TD>
+    <TD>boolean</TD>
+    <TD>定义是否启用drag and drop.</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>data</TD>
+    <TD>array</TD>
+    <TD>这个节点数据将被加载. <PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#tt').tree({
+	data: [{
+		text: 'Item1',
+		state: 'closed',
+		children: [{
+			text: 'Item11'
+		},{
+			text: 'Item12'
+		}]
+	},{
+		text: 'Item2'
+	}]
+});
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>loader</TD>
+    <TD>function(param,success,error)</TD>
+    <TD>定义如何从远程服务器加载数据.返回false将终止这个动作.这个函数提供以下参数:<BR>param: 
+      这个参数对象将传送给远程服务器.<BR>success(data): 当检索数据成功之后的回调函数.<BR>error(): 
+      当检索数据出现异常的时候调用的回调函数. </TD>
+    <TD>json loader</TD></TR>
+  <TR>
+    <TD>loadFilter</TD>
+    <TD>function(data,parent)</TD>
+    <TD>返回显示过滤后的数据. 返回的数据是标准的tree格式.这个函数提供以下参数:<BR>data:装载的是原始数据.<BR>parent: 
+      DOM 对象, 指定父节点. </TD>
+    <TD></TD></TR></TBODY></TABLE>
+<H4>Events</H4>
+<P>许多回调函数提供'node'参数, 都包含以下属性:</P>
+<UL>
+  <LI>id: 绑定到节点的标识值.</LI>
+  <LI>text:显示文本.</LI>
+  <LI>iconCls: 显示icon的css样式.</LI>
+  <LI>checked: 节点是否选中.</LI>
+  <LI>state: 节点状态, 'open' 或者 'closed'.</LI>
+  <LI>attributes: 绑定到节点的自定义属性.</LI>
+  <LI>target: 目标 DOM 对象. </LI></UL>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameters</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>onClick</TD>
+    <TD>node</TD>
+    <TD>当用户点击节点的时候触发. 示例代码: <PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#tt').tree({
+	onClick: function(node){
+		alert(node.text);  // alert node text property when clicked
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>onDblClick</TD>
+    <TD>node</TD>
+    <TD>当用户双击一个节点的时候触发.</TD></TR>
+  <TR>
+    <TD>onBeforeLoad</TD>
+    <TD>node, param</TD>
+    <TD>当一个请求加载数据在前触发, 返回false取消加载动作.</TD></TR>
+  <TR>
+    <TD>onLoadSuccess</TD>
+    <TD>node, data</TD>
+    <TD>当数据加载成功之后触发.</TD></TR>
+  <TR>
+    <TD>onLoadError</TD>
+    <TD>arguments</TD>
+    <TD>当数据加载失败触发,arguments参数和ajax jQuery 的'error'一样.</TD></TR>
+  <TR>
+    <TD>onBeforeExpand</TD>
+    <TD>node</TD>
+    <TD>节点展开之前触发,返回false取消展开动作.</TD></TR>
+  <TR>
+    <TD>onExpand</TD>
+    <TD>node</TD>
+    <TD>当节点展开之后触发.</TD></TR>
+  <TR>
+    <TD>onBeforeCollapse</TD>
+    <TD>node</TD>
+    <TD>节点折叠之前触发,返回false将取消折叠动作.</TD></TR>
+  <TR>
+    <TD>onCollapse</TD>
+    <TD>node</TD>
+    <TD>当节点折叠之后触发.</TD></TR>
+  <TR>
+    <TD>onCheck</TD>
+    <TD>node, checked</TD>
+    <TD>当用户点击checkbox的时候触发.</TD></TR>
+  <TR>
+    <TD>onBeforeSelect</TD>
+    <TD>node</TD>
+    <TD>节点被选中之前触发,返回false取消选择动作.</TD></TR>
+  <TR>
+    <TD>onSelect</TD>
+    <TD>node</TD>
+    <TD>当节点选中之后触发.</TD></TR>
+  <TR>
+    <TD>onContextMenu</TD>
+    <TD>e, node</TD>
+    <TD>当在节点上右键点击的时候触发,代码示例: <PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">// 右键点击节点然后显示上下文菜单
+$('#tt').tree({
+	onContextMenu: function(e, node){
+		e.preventDefault();
+		// 选择节点
+		$('#tt').tree('select', node.target);
+		// 显示上下文菜单
+		$('#mm').menu('show', {
+			left: e.pageX,
+			top: e.pageY
+		});
+	}
+});
+
+//上下文菜单定义如下:
+&lt;div id="mm" class="easyui-menu" style="width:120px;"&gt;
+	&lt;div onclick="append()" data-options="iconCls:'icon-add'"&gt;Append&lt;/div&gt;
+	&lt;div onclick="remove()" data-options="iconCls:'icon-remove'"&gt;Remove&lt;/div&gt;
+&lt;/div&gt;
+</PRE></TD></TR>
+  <TR>
+    <TD>onDrop</TD>
+    <TD>target, source, point</TD>
+    <TD>当节点被放置的时候触发.<BR>target: DOM 对象,这个节点是被放置的目标.<BR>source: 
+      源节点.<BR>point:指明drop操作,可用值有: 'append','top' or 'bottom'.</TD></TR>
+  <TR>
+    <TD>onBeforeEdit</TD>
+    <TD>node</TD>
+    <TD>在编辑节点之前触发.</TD></TR>
+  <TR>
+    <TD>onAfterEdit</TD>
+    <TD>node</TD>
+    <TD>编辑节点之后触发.</TD></TR>
+  <TR>
+    <TD>onCancelEdit</TD>
+    <TD>node</TD>
+    <TD>取消编辑动作时候触发.</TD></TR></TBODY></TABLE>
+<H4>Methods</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameter</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回tree 的options.</TD></TR>
+  <TR>
+    <TD>loadData</TD>
+    <TD>data</TD>
+    <TD>加载tree数据.</TD></TR>
+  <TR>
+    <TD>getNode</TD>
+    <TD>target</TD>
+    <TD>得到特定的节点对象.</TD></TR>
+  <TR>
+    <TD>getData</TD>
+    <TD>target</TD>
+    <TD>得到特定节点数据, 包含其子节点.</TD></TR>
+  <TR>
+    <TD>reload</TD>
+    <TD>target</TD>
+    <TD>重新加载tree数据.</TD></TR>
+  <TR>
+    <TD>getRoot</TD>
+    <TD>none</TD>
+    <TD>得到根节点, 返回节点对象</TD></TR>
+  <TR>
+    <TD>getRoots</TD>
+    <TD>none</TD>
+    <TD>得到根节点, 返回节点数组.</TD></TR>
+  <TR>
+    <TD>getParent</TD>
+    <TD>target</TD>
+    <TD>得到父节点,target参数指明节点DOM对象.</TD></TR>
+  <TR>
+    <TD>getChildren</TD>
+    <TD>target</TD>
+    <TD>得到子节点,<SPAN style="FONT-SIZE: 14px">target 参数指明节点DOM对象</SPAN>.</TD></TR>
+  <TR>
+    <TD>getChecked</TD>
+    <TD>none</TD>
+    <TD>得到所有选中节点.</TD></TR>
+  <TR>
+    <TD>getSelected</TD>
+    <TD>none</TD>
+    <TD>得到选择节点和返回它,如果没有选择节点将返回null</TD></TR>
+  <TR>
+    <TD>isLeaf</TD>
+    <TD>target</TD>
+    <TD>解决特定的节点是否是叶子节点, <SPAN style="FONT-SIZE: 14px">target 
+      参数指明节点DOM对象</SPAN>.</TD></TR>
+  <TR>
+    <TD>find</TD>
+    <TD>id</TD>
+    <TD>&nbsp;查找特定的节点和返回节点对象,代码示例: <PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">// 查找一个节点然后返回它
+var node = $('#tt').tree('find', 12);
+$('#tt').tree('select', node.target);
+</PRE></TD></TR>
+  <TR>
+    <TD>select</TD>
+    <TD>target</TD>
+    <TD>选择一个节点,<SPAN style="FONT-SIZE: 14px">target 参数指明节点DOM对象</SPAN></TD></TR>
+  <TR>
+    <TD>check</TD>
+    <TD>target</TD>
+    <TD>设置特定的节点选中.</TD></TR>
+  <TR>
+    <TD>uncheck</TD>
+    <TD>target</TD>
+    <TD>设置特定的节点取消选中.</TD></TR>
+  <TR>
+    <TD>collapse</TD>
+    <TD>target</TD>
+    <TD>折叠一个节点, <SPAN style="FONT-SIZE: 14px">target 参数指明节点DOM对象</SPAN>.</TD></TR>
+  <TR>
+    <TD>expand</TD>
+    <TD>target</TD>
+    <TD>展开一个节点, <SPAN style="FONT-SIZE: 14px">target 
+      参数指明节点DOM对象,当节点的状态是closed的时候 和没有子节点,节点id值(参数命名为'id')将发送给服务器请求子节点数据</SPAN>. 
+    </TD></TR>
+  <TR>
+    <TD>collapseAll</TD>
+    <TD>target</TD>
+    <TD>折叠所有节点.</TD></TR>
+  <TR>
+    <TD>expandAll</TD>
+    <TD>target</TD>
+    <TD>展开所有节点.</TD></TR>
+  <TR>
+    <TD>expandTo</TD>
+    <TD>target</TD>
+    <TD>展开从根节点到指定的节点.</TD></TR>
+  <TR>
+    <TD>append</TD>
+    <TD>param</TD>
+    <TD>附加一些子节点到父节点中. param参数有两个属性:<BR>parent: DOM 
+      对象,被添加到的父节点,如果没有分配,附加到根节点.<BR>data: array, the nodes data. Code example: <PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">// 添加一些节点到选择的节点
+var selected = $('#tt').tree('getSelected');
+$('#tt').tree('append', {
+	parent: selected.target,
+	data: [{
+		id: 23,
+		text: 'node23'
+	},{
+		text: 'node24',
+		state: 'closed',
+		children: [{
+			text: 'node241'
+		},{
+			text: 'node242'
+		}]
+	}]
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>toggle</TD>
+    <TD>target</TD>
+    <TD>切换expanded/collapsed 节点的状态,<SPAN style="FONT-SIZE: 14px">target 
+      参数指明节点DOM对象</SPAN>.</TD></TR>
+  <TR>
+    <TD>insert</TD>
+    <TD>param</TD>
+    <TD>插入一个节点到特定节点的之前或之后.'param'参数包含以下属性:<BR>before: DOM 
+      对象,节点插入到之前.<BR>after: DOM 对象, 节点插入到之后.<BR>data: object, 节点数据. 
+      <P>以下代码展示,如何插入新节点到选择节点之前:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">var node = $('#tt').tree('getSelected');
+if (node){
+	$('#tt').tree('insert', {
+		before: node.target,
+		data: {
+			id: 21,
+			text: 'node text'
+		}
+	});
+}
+</PRE></TD></TR>
+  <TR>
+    <TD>remove</TD>
+    <TD>target</TD>
+    <TD>移除一个节点和其子节点,<SPAN style="FONT-SIZE: 14px">target 
+  参数指明节点DOM对象</SPAN>.</TD></TR>
+  <TR>
+    <TD>pop</TD>
+    <TD>target</TD>
+    <TD><SPAN 
+      style="FONT-SIZE: 14px">移除一个节点和其子节点</SPAN>,这个方法和remove类似,但是它返回移除的节点数据.</TD></TR>
+  <TR>
+    <TD>update</TD>
+    <TD>param</TD>
+    <TD>更新特定的节点. 'param'参数包含以下属性:<BR>target(DOM 对象, 
+      更新的节点),id,text,iconCls,checked,等等. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">// 更新选择的节点文本
+var node = $('#tt').tree('getSelected');
+if (node){
+	$('#tt').tree('update', {
+		target: node.target,
+		text: 'new text'
+	});
+}
+</PRE></TD></TR>
+  <TR>
+    <TD>enableDnd</TD>
+    <TD>none</TD>
+    <TD>启用 drag 和 drop 功能（拖放）.</TD></TR>
+  <TR>
+    <TD>disableDnd</TD>
+    <TD>none</TD>
+    <TD>禁用 drag 和 drop 功能（拖放）..</TD></TR>
+  <TR>
+    <TD>beginEdit</TD>
+    <TD>target</TD>
+    <TD>开始编辑一个节点.</TD></TR>
+  <TR>
+    <TD>endEdit</TD>
+    <TD>target</TD>
+    <TD>开始编辑一个节点.</TD></TR>
+  <TR>
+    <TD>cancelEdit</TD>
+    <TD>target</TD>
+    <TD>取消编辑一个节点.</TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-tree');
+		</SCRIPT>
+</BODY></HTML>

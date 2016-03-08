@@ -1,0 +1,182 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>searchbox - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>搜索框 - SearchBox</H3>
+<P>使用$.fn.searchbox.defaults重载默认值。</P>
+<P>这个searchbox提示用户输入搜索值。它可以把一个菜单,允许用户选择不同的搜索类别。将执行的搜索行动,当用户按ENTER键或单击搜索按钮组件的权利。<BR></P><IMG 
+src="images/searchbox.png" 
+tppabs="http://jeasyui.com/documentation/images/searchbox.png"> 
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="menubutton.php.htm">菜单按钮 - menubutton </A></LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<H5>创建搜索框</H5>
+<P>1. 使用标签创建。对input标签引用'easyui-searchbox'类。</P><TEXTAREA class=html name=code-searchbox>	&lt;script type="text/javascript"&gt;
+		function qq(value,name){
+			alert(value+":"+name)
+		}
+	&lt;/script&gt;
+	
+	&lt;input id="ss" class="easyui-searchbox" style="width:300px"
+			data-options="searcher:qq,prompt:'Please Input Value',menu:'#mm'"&gt;&lt;/input&gt;
+			
+	&lt;div id="mm" style="width:120px"&gt;
+		&lt;div data-options="name:'all',iconCls:'icon-ok'"&gt;All News&lt;/div&gt;
+		&lt;div data-options="name:'sports'"&gt;Sports News&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>2. 使用脚本创建。</P><TEXTAREA class=html name=code-searchbox>	&lt;input id="ss"&gt;&lt;/input&gt;
+	&lt;div id="mm" style="width:120px"&gt;
+		&lt;div data-options="name:'all',iconCls:'icon-ok'"&gt;All News&lt;/div&gt;
+		&lt;div data-options="name:'sports'"&gt;Sports News&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-searchbox>	$('#ss').searchbox({
+		searcher:function(value,name){
+			alert(value + "," + name)
+		},
+		menu:'#mm',
+		prompt:'Please Input Value'
+	});
+</TEXTAREA> <BR>
+<H4>属性（Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>number</TD>
+    <TD>设置组件的宽度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>prompt</TD>
+    <TD>string</TD>
+    <TD>显示在搜索框的提醒信息。</TD>
+    <TD>''</TD></TR>
+  <TR>
+    <TD>value</TD>
+    <TD>string</TD>
+    <TD>搜索框的默认值。</TD>
+    <TD>''</TD></TR>
+  <TR>
+    <TD>menu</TD>
+    <TD>selector</TD>
+    <TD>搜索类型菜单。每个菜单项可以有以下属性:<BR>　　name:搜索类型名称。<BR>　　selected:电流选择搜索类型名称。<BR>　　下面的例子显示了如何定义一个选定的搜索类型名称。 
+<PRE>&lt;input class="easyui-searchbox" style="width:300px" data-options="menu:'#mm'" /&gt;
+&lt;div id="mm" style="width:150px"&gt;
+	&lt;div data-options="name:'item1'"&gt;Search Item1&lt;/div&gt;
+	&lt;div data-options="name:'item2',selected:true"&gt;Search Item2&lt;/div&gt;
+	&lt;div data-options="name:'item3'"&gt;Search Item3&lt;/div&gt;
+&lt;/div&gt;
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>searcher</TD>
+    <TD>function(value,name)</TD>
+    <TD>当用户点击搜索按钮或者按下ENTER键的时候搜索函数将被调用。</TD>
+    <TD>null</TD></TR></TBODY></TABLE>
+<H4>事件（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回搜索框属性对象。</TD></TR>
+  <TR>
+    <TD>menu</TD>
+    <TD>none</TD>
+    <TD>返回的搜索类型菜单对象。下面的例子显示了如何修改菜单项图标。&nbsp;<PRE>var m = $('#ss').searchbox('menu');  // get the menu object
+var item = m.menu('findItem', 'Sports News');  // find the menu item
+// change the menu item icon
+m.menu('setIcon', {
+	target: item.target,
+	iconCls: 'icon-save'
+});
+// select the searching type name
+$('#ss').searchbox('selectName', 'sports');
+</PRE></TD></TR>
+  <TR>
+    <TD>textbox</TD>
+    <TD>none</TD>
+    <TD>返回文本框对象。</TD></TR>
+  <TR>
+    <TD>getValue</TD>
+    <TD>none</TD>
+    <TD>返回当前搜索关键字。</TD></TR>
+  <TR>
+    <TD>setValue</TD>
+    <TD>value</TD>
+    <TD>设置新的搜索关键字。</TD></TR>
+  <TR>
+    <TD>getName</TD>
+    <TD>none</TD>
+    <TD>返回当前搜索类型。</TD></TR>
+  <TR>
+    <TD>selectName</TD>
+    <TD>name</TD>
+    <TD>选择当前的搜索类型名称。<BR>
+      <P>示例:</P><PRE>$('#ss').searchbox('selectName', 'sports');
+</PRE></TD></TR>
+  <TR>
+    <TD>destroy</TD>
+    <TD>none</TD>
+    <TD>清除搜索框组件</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>width</TD>
+    <TD>重置搜索框组建的宽度。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-searchbox');
+		</SCRIPT>
+</BODY></HTML>

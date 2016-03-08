@@ -1,0 +1,282 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>combobox - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>可装载组合框 - ComboBox</H3>
+<P><SPAN style="FONT-SIZE: 12px">继承自<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif"><FONT 
+size=2>$.fn.combo.defaults,通过</FONT><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">$.fn.combobox.defaults覆盖默认值</SPAN></SPAN></SPAN></P>
+<P><SPAN style="FONT-SIZE: 12px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combobox显示的是一个可以编辑的文本框和一个下拉列表.允许用户从里面选择一个或者是多个值,用户可以直接输入值到列表顶部,或者可以从列表选择一个或多个现有值.</SPAN></SPAN></SPAN></P><IMG 
+src="images/combobox.png" 
+tppabs="http://jeasyui.com/documentation/images/combobox.png"> 
+<H4>Dependencies</H4>
+<UL>
+  <LI>combo </LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<P>从&lt;select&gt;元素和一个预定义结构创建combobox.</P><TEXTAREA class=html name=code-combobox>	&lt;select id="cc" class="easyui-combobox" name="dept" style="width:200px;"&gt;
+		&lt;option value="aa"&gt;aitem1&lt;/option&gt;
+		&lt;option&gt;bitem2&lt;/option&gt;
+		&lt;option&gt;bitem3&lt;/option&gt;
+		&lt;option&gt;ditem4&lt;/option&gt;
+		&lt;option&gt;eitem5&lt;/option&gt;
+	&lt;/select&gt;
+</TEXTAREA> 
+<P>从&lt;input&gt;标记创建combobox.</P><TEXTAREA class=html name=code-combobox>	&lt;input id="cc" class="easyui-combobox" name="dept"
+		data-options="valueField:'id',textField:'text',url:'get_data.php'" /&gt;
+</TEXTAREA> 
+<P>使用javascript创建combobox</P><TEXTAREA class=html name=code-combobox>	&lt;input id="cc" name="dept" value="aa"&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-combobox>	$('#cc').combobox({
+		url:'combobox_data.json',
+		valueField:'id',
+		textField:'text'
+	});
+</TEXTAREA> 
+<P>创建两个依赖的combobox</P><TEXTAREA class=html name=code-combobox>	&lt;input id="cc1" class="easyui-combobox" data-options="
+			valueField: 'id',
+			textField: 'text',
+			url: 'get_data1.php',
+			onSelect: function(rec){
+				var url = 'get_data2.php?id='+rec.id;
+				$('#cc2').combobox('reload', url);
+			}" /&gt;
+	&lt;input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'" /&gt;
+</TEXTAREA> 
+<P>json数据转换示例:</P><TEXTAREA class=js name=code-combobox>	[{
+		"id":1,
+		"text":"text1"
+	},{
+		"id":2,
+		"text":"text2"
+	},{
+		"id":3,
+		"text":"text3",
+		"selected":true
+	},{
+		"id":4,
+		"text":"text4"
+	},{
+		"id":5,
+		"text":"text5"
+	}]
+</TEXTAREA> <BR>
+<H4>Properties</H4>
+<P>这些属性继承至 combo,下面是combobox的一些新增属性.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>valueField</TD>
+    <TD>string</TD>
+    <TD>绑定到这个combobox的基础数据值名.</TD>
+    <TD>value</TD></TR>
+  <TR>
+    <TD>textField</TD>
+    <TD>string</TD>
+    <TD>绑定到这个combobox的数据字段名.</TD>
+    <TD>text</TD></TR>
+  <TR>
+    <TD>mode</TD>
+    <TD>string</TD>
+    <TD>当文本改变时定义如何加载显示列表数据.如果设置为'remote' combobox从远程服务器加载数据.当设置为'remote'模式时, 
+      用户输入的信息将发送作为http请求参数,参数名为'q'到服务器检索新的数据. </TD>
+    <TD>local</TD></TR>
+  <TR>
+    <TD>url</TD>
+    <TD>string</TD>
+    <TD>一个从远程服务器加载列表数据的URL.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>method</TD>
+    <TD>string</TD>
+    <TD>检索数据的http请求方法.</TD>
+    <TD>post</TD></TR>
+  <TR>
+    <TD>data</TD>
+    <TD>array</TD>
+    <TD>需要加载到列表的数据. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">&lt;input class="easyui-combobox" data-options="
+		valueField: 'label',
+		textField: 'value',
+		data: [{
+			label: 'java',
+			value: 'Java'
+		},{
+			label: 'perl',
+			value: 'Perl'
+		},{
+			label: 'ruby',
+			value: 'Ruby'
+		}]" /&gt;
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>filter</TD>
+    <TD>function</TD>
+    <TD>定义如何过滤本地数据,当'mode'设置为'local'的时候. 这个函数提供两个参数:<BR>q: 用户输入的文本.<BR>row: 
+      列表的行数据.<BR>返回true 允许行显示 . 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combobox({
+	filter: function(q, row){
+		var opts = $(this).combobox('options');
+		return row[opts.textField].indexOf(q) == 0;
+	}
+});
+</PRE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>formatter</TD>
+    <TD>function</TD>
+    <TD>定义如何呈现行. 这个函数提供一个参数 :row. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combobox({
+	formatter: function(row){
+		var opts = $(this).combobox('options');
+		return row[opts.textField];
+	}
+});
+</PRE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>loader</TD>
+    <TD>function(param,success,error)</TD>
+    <TD>定义如何从远程服务器加载数据. 
+      返回false终止这个动作.这个函数提供一下参数:<BR>param:传递给远程服务器的参数对象.<BR>success(data): 
+      当检索数据成功这个回调函数将被调用.<BR>error():当检索数据失败(异常,而不是返回空数据的时候)这个函数将被调用.</TD>
+    <TD>json loader</TD></TR></TBODY></TABLE><BR>
+<H4>Events</H4>
+<P>事件继承至 combo, 以下是combobox的新增事件.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameters</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>onBeforeLoad</TD>
+    <TD>param</TD>
+    <TD>一个请求在加载数据之前触发,返回false取消这个加载动作. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">// 在从远程服务器加载数据之前改变请求参数
+$('#cc').combobox({
+	onBeforeLoad: function(param){
+		param.id = 2;
+		param.language = 'js';
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>onLoadSuccess</TD>
+    <TD>none</TD>
+    <TD>当远程数据加载成功之后触发.</TD></TR>
+  <TR>
+    <TD>onLoadError</TD>
+    <TD>none</TD>
+    <TD>远程数据加载出错触发.</TD></TR>
+  <TR>
+    <TD>onSelect</TD>
+    <TD>record</TD>
+    <TD>当用户选择一个列表项的时候触发.</TD></TR>
+  <TR>
+    <TD>onUnselect</TD>
+    <TD>record</TD>
+    <TD>当用户取消选择一个列表项的时候触发.</TD></TR></TBODY></TABLE><BR>
+<H4>Methods</H4>
+<P>方法继承至 combo,以下是combobox的新增的或者是重写的方法.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameter</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回 options 对象.</TD></TR>
+  <TR>
+    <TD>getData</TD>
+    <TD>none</TD>
+    <TD>返回加载数据.</TD></TR>
+  <TR>
+    <TD>loadData</TD>
+    <TD>data</TD>
+    <TD>返回本地列表数据.</TD></TR>
+  <TR>
+    <TD>reload</TD>
+    <TD>url</TD>
+    <TD>请求远程服务器列表数据.传入'url'参数重写原始的URL值. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combobox('reload');  //使用原始URL重新加载列表数据
+$('#cc').combobox('reload','get_data.php');  //使用新的URL重新加载列表数据
+<FONT style="BACKGROUND-COLOR: #ffffff" color=#000000 face=Arial></FONT></PRE></TD></TR>
+  <TR>
+    <TD>setValues</TD>
+    <TD>values</TD>
+    <TD>设置 combobox 值数组. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combobox('setValues', ['001','002']);
+</PRE></TD></TR>
+  <TR>
+    <TD>setValue</TD>
+    <TD>value</TD>
+    <TD>设置 combobox 值. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combobox('setValues', '001');
+</PRE></TD></TR>
+  <TR>
+    <TD>clear</TD>
+    <TD>none</TD>
+    <TD>清除 combobox 值.</TD></TR>
+  <TR>
+    <TD>select</TD>
+    <TD>value</TD>
+    <TD>选择特定的项.</TD></TR>
+  <TR>
+    <TD>unselect</TD>
+    <TD>value</TD>
+    <TD>取消特定的选择项.</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-combobox');
+		</SCRIPT>
+</BODY></HTML>

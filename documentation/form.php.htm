@@ -1,0 +1,200 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>form - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>Form</H3>
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">覆盖默认值 
+$.fn.form.defaults.</SPAN><BR></P>
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">form提供不同的方法执行操作表单字段例如ajax 
+submit,loader,clear,等等..当提交表单的时候,'validate'将调用验证表单是否合法</SPAN>. </P>
+<H4>Usage</H4>
+<P>创建简单的HTML form,构造这个通常会使用id,action和method的值. </P><TEXTAREA class=html name=code-form>	&lt;form id="ff" method="post"&gt;
+		&lt;div&gt;
+			&lt;label for="name"&gt;Name:&lt;/label&gt;
+			&lt;input class="easyui-validatebox" type="text" name="name" data-options="required:true" /&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;label for="email"&gt;Email:&lt;/label&gt;
+			&lt;input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" /&gt;
+		&lt;/div&gt;
+		...
+	&lt;/form&gt;
+</TEXTAREA> 
+<P>使表单成为ajax提交的form</P><TEXTAREA class=js name=code-form>	$('#ff').form({
+		url:...,
+		onSubmit: function(){
+			// do some check
+			// return false to prevent submit;
+		},
+		success:function(data){
+			alert(data)
+		}
+	});
+	// submit the form
+	$('#ff').submit();
+</TEXTAREA> 
+<P>执行提交动作</P><TEXTAREA class=js name=code-form>	// call 'submit' method of form plugin to submit the form
+	$('#ff').form('submit', {
+		url:...,
+		onSubmit: function(){
+			// do some check
+			// return false to prevent submit;
+		},
+		success:function(data){
+			alert(data)
+		}
+	});
+</TEXTAREA> <BR>
+<H5>处理 submit 响应</H5>
+<DIV>提交一个ajax的form非常简单,当提交结束后用户可以得到响应数据,注意这个响应数据是来自服务器端的原始数据,响应数据的一个解析动作是需要得到的是正确的数据.</DIV>
+<DIV>例如:响应数据假设为json,一个标准的响应数据例如下面这个</DIV>
+<P>: </P><TEXTAREA class=js name=code-form>{
+	"success": true,
+	"message": "Message sent successfully."
+}
+</TEXTAREA> 
+<P>现在处理json字符串在'success'回调函数中.</P><TEXTAREA class=js name=code-form>$('#ff').form('submit', {
+	success: function(data){
+		var data = eval('(' + data + ')');  // change the JSON string to javascript object
+		if (data.success){
+			alert(data.message)
+		}
+	}
+});
+</TEXTAREA> <BR>
+<H4>Properties</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>url</TD>
+    <TD>string</TD>
+    <TD>form的action的URL提交地址</TD>
+    <TD>null</TD></TR></TBODY></TABLE>
+<H4>Events</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameters</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>onSubmit</TD>
+    <TD>none</TD>
+    <TD>form提交之前触发,该方法返回false将阻止submit动作.</TD></TR>
+  <TR>
+    <TD>success</TD>
+    <TD>data</TD>
+    <TD>当form提交成功之后触发.</TD></TR>
+  <TR>
+    <TD>onBeforeLoad</TD>
+    <TD>param</TD>
+    <TD>在请求加载数据之前触发.该方法返回false将取消这个动作.</TD></TR>
+  <TR>
+    <TD>onLoadSuccess</TD>
+    <TD>data</TD>
+    <TD>当form数据成功加载之后触发.</TD></TR>
+  <TR>
+    <TD>onLoadError</TD>
+    <TD>none</TD>
+    <TD>当在加载数据的时候出现一些异常的时候触发.</TD></TR></TBODY></TABLE>
+<H4>Methods</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameter</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>submit</TD>
+    <TD>options</TD>
+    <TD>执行submit动作, 这个 options参数是一个对象包含一下属性:<BR>url: 这个提交动作的URL地址<BR>onSubmit: 
+      在提交之前的回调函数<BR>success: 提交成功之后的回调函数<BR>下面的示例展示如何提交一个合法form和避免重复提交form<BR>
+      <P><BR></P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$.messager.progress();	// 显示一个进度条 
+$('#ff').form('submit', {
+	url: ...,
+	onSubmit: function(){
+		var isValid = $(this).form('validate');
+		if (!isValid){
+			$.messager.progress('close');	// 当form不合法的时候隐藏工具条
+		}
+		return isValid;	// 返回false将停止form提交 
+	},
+	success: function(){
+		$.messager.progress('close');	// 当成功提交之后隐藏进度条
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>load</TD>
+    <TD>data</TD>
+    <TD>加载记录填充form. 这个 data 参数可以是一个string或者是一个object类型, 
+      当是string类型的时候将请求远程服务器端数据,其他(例如:object类型)行为定义为加载本地记录. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#ff').form('load','get_data.php');	// 从URL加载 
+</PRE><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#ff').form('load',{//加载本地记录
+	name:'name2',
+	email:'mymail@gmail.com',
+	subject:'subject2',
+	message:'message2',
+	language:5
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>clear</TD>
+    <TD>none</TD>
+    <TD>清空form数据</TD></TR>
+  <TR>
+    <TD>validate</TD>
+    <TD>none</TD>
+    <TD>做form字段验证,返回true表示所有字段合法,这个方法使用了validatebox插件plugin.</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-form');
+		</SCRIPT>
+</BODY></HTML>

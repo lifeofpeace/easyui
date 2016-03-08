@@ -1,0 +1,384 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>tabs - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>选项卡 - Tabs</H3>
+<P>使用$.fn.tabs.defaults重载默认值。</P>
+<P>这个选项卡显示面板的集合。它显示了只有一个选项卡面板在一个时间。每个选项卡面板的标题和一些迷你按钮的工具,包括关闭按钮和其他定制按钮。</P><IMG 
+src="images/tabs.png" tppabs="http://jeasyui.com/documentation/images/tabs.png"> 
+
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="panel.php.htm">面版 - panel</A> 
+  <LI><A href="linkbutton.php.htm">链接按钮 - linkbutton</A> </LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<H5>Create tabs</H5>
+<P>1.&nbsp; 使用HTML标签创建选项卡</P>
+<P>使用HTML标签创建选项卡十分简单，不需要写任何javascript代码，只需要&lt;div&gt;标签引用'easyui-panel'类。每个选项卡面板都可以使用闭合的&lt;div&gt;标签对创建，使用方法跟创建控制面板一样。 
+</P><TEXTAREA class=html name=code-tabs>	&lt;div id="tt" class="easyui-tabs" style="width:500px;height:250px;"&gt;
+		&lt;div title="Tab1" style="padding:20px;display:none;"&gt;
+			tab1
+		&lt;/div&gt;
+		&lt;div title="Tab2" data-options="closable:true" style="overflow:auto;padding:20px;display:none;"&gt;
+			tab2
+		&lt;/div&gt;
+		&lt;div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="padding:20px;display:none;"&gt;
+			tab3
+		&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>2. 使用脚本创建选项卡</P>
+<P>下面的代码演示如何使用脚本创建选项卡，当该选项卡被选择时将会触发'onSelect'事件。</P>
+<P><TEXTAREA class=js name=code-tabs>	$('#tt').tabs({
+		border:false,
+		onSelect:function(title){
+			alert(title+' is selected');
+		}
+	});
+</TEXTAREA> </P>
+<H5>添加一个选项卡</H5>
+<P>添加一个新的标签页面板与迷你工具,迷你工具图标(8×8)被放置在关闭按钮。 </P><TEXTAREA class=js name=code-tabs>	// add a new tab panel
+	$('#tt').tabs('add',{
+		title:'New Tab',
+		content:'Tab Body',
+		closable:true,
+		tools:[{
+			iconCls:'icon-mini-refresh',
+			handler:function(){
+				alert('refresh');
+			}
+		}]
+	});
+</TEXTAREA> 
+<H5>
+<H5>获取当前被选择的选项卡</H5></H5><TEXTAREA class=js name=code-tabs>	// get the selected tab panel and its tab object
+	var pp = $('#tt').tabs('getSelected');
+	var tab = pp.panel('options').tab;    // the corresponding tab object	
+</TEXTAREA> 
+<P>&nbsp;</P>
+<H4>属性（Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>number</TD>
+    <TD>选项卡所在容器（控制面板）的宽度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>height</TD>
+    <TD>number</TD>
+    <TD>选项卡所在容器（控制面板）的高度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>plain</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true，将不显示控制面板背景。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>fit</TD>
+    <TD>boolean</TD>
+    <TD>设置为true时，选项卡的大小将铺满它所在的容器（浏览器）。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>border</TD>
+    <TD>boolean</TD>
+    <TD>如果设置true，将显示选项卡所在容器（面板）的边框。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>scrollIncrement</TD>
+    <TD>number</TD>
+    <TD>选项卡滚动条每次滚动的像素值。</TD>
+    <TD>100</TD></TR>
+  <TR>
+    <TD>scrollDuration</TD>
+    <TD>number</TD>
+    <TD>每次滚动持续的时间，单位为毫秒。</TD>
+    <TD>400</TD></TR>
+  <TR>
+    <TD>tools</TD>
+    <TD>array,selector</TD>
+    <TD>
+      <DIV>控制面板右侧的工具栏：</DIV>
+      <DIV>1.每个工具选项都跟链接按钮一样。</DIV>
+      <DIV>2. 一个选择器指向&lt; div / &gt;包含工具。<BR><BR>Code example: </DIV>
+      <P>Define tools with an array.</P><PRE>$('#tt').tabs({
+	tools:[{
+		iconCls:'icon-add',
+		handler:function(){
+			alert('add')
+		}
+	},{
+		iconCls:'icon-save',
+		handler:function(){
+			alert('save')
+		}
+	}]
+});
+</PRE>
+      <P>Define tools with a exist DOM container.</P><PRE>$('#tt').tabs({
+	tools:'#tab-tools'
+});
+&lt;div id="tab-tools"&gt;
+	&lt;a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add"&gt;&lt;/a&gt;
+	&lt;a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-save"&gt;&lt;/a&gt;
+&lt;/div&gt;
+</PRE></TD>
+    <TD>null</TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onLoad</TD>
+    <TD>panel</TD>
+    <TD>当一个选项卡完成ajax远程载入对象时触发。</TD></TR>
+  <TR>
+    <TD>onSelect</TD>
+    <TD>title,index</TD>
+    <TD>当用户选择一个选项卡时触发。</TD></TR>
+  <TR>
+    <TD>onBeforeClose</TD>
+    <TD>title,index</TD>
+    <TD>在一个选项卡被关闭之前触发，返回false将取消关闭。下面的例子展示了如何显示确认对话框之前关闭选项卡面板。 <PRE>$('#tt').tabs({
+  onBeforeClose: function(title){
+	return confirm('Are you sure you want to close ' + title);
+  }
+});
+// using the async confirm dialog
+$('#tt').tabs({
+  onBeforeClose: function(title,index){
+	var target = this;
+	$.messager.confirm('Confirm','Are you sure you want to close '+title,function(r){
+		if (r){
+			var opts = $(target).tabs('options');
+			var bc = opts.onBeforeClose;
+			opts.onBeforeClose = function(){};  // allowed to close now
+			$(target).tabs('close',index);
+			opts.onBeforeClose = bc;  // restore the event function
+		}
+	});
+	return false;	// prevent from closing
+  }
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>onClose</TD>
+    <TD>title,index</TD>
+    <TD>在用户关闭一个选项卡面板后触发。</TD></TR>
+  <TR>
+    <TD>onAdd</TD>
+    <TD>title,index</TD>
+    <TD>在一个选项卡面板被添加后触发。</TD></TR>
+  <TR>
+    <TD>onUpdate</TD>
+    <TD>title,index</TD>
+    <TD>在一个选项卡面板被更新后触发。</TD></TR>
+  <TR>
+    <TD>onContextMenu</TD>
+    <TD>e, title,index</TD>
+    <TD>在一个选项卡面板被鼠标右键单击后触发。</TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回选项卡属性对象。</TD></TR>
+  <TR>
+    <TD>tabs</TD>
+    <TD>none</TD>
+    <TD>返回所有的选项卡面板。</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>none</TD>
+    <TD>重置选项卡容器（面板）大小并且自动布局。</TD></TR>
+  <TR>
+    <TD>add</TD>
+    <TD>options</TD>
+    <TD>添加一个新的选项卡面板，options参数是一个可以配置的对象，查看选项卡控制面板属性获取更多信息。<PRE>// add a unselected tab panel
+$('#tt').tabs('add',{
+	title: 'new tab',
+	selected: false
+	//...
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>close</TD>
+    <TD>which</TD>
+    <TD>关闭一个选项卡面板，title参数表示哪个选项卡将被关闭。</TD></TR>
+  <TR>
+    <TD>getTab</TD>
+    <TD>which</TD>
+    <TD>获取特定的选项卡面板名称。</TD></TR>
+  <TR>
+    <TD>getTabIndex</TD>
+    <TD>tab</TD>
+    <TD>获取指定的选项卡面板索引。</TD></TR>
+  <TR>
+    <TD>getSelected</TD>
+    <TD>none</TD>
+    <TD>获得选中的选项卡面板。下面的例子显示了如何获取索引指定的选项卡面板。<BR><PRE>var tab = $('#tt').tabs('getSelected');
+var index = $('#tt').tabs('getTabIndex',tab);
+alert(index);
+</PRE></TD></TR>
+  <TR>
+    <TD>select</TD>
+    <TD>which</TD>
+    <TD>选择一个选项卡面板。</TD></TR>
+  <TR>
+    <TD>exists</TD>
+    <TD>which</TD>
+    <TD>验证一个特定的选项卡面板是否存在，参数'which' 可以指向选项卡面板标题或索引的。</TD></TR>
+  <TR>
+    <TD>update</TD>
+    <TD>param</TD>
+    <TD>更新特定的选项卡面板，param参数包含2个属性:<BR>tab: 将被更新的选项卡。<BR>options: 
+      选项卡相关配置项。<BR><BR>Code example: <PRE>// update the selected panel with new title and content
+var tab = $('#tt').tabs('getSelected');  // get selected panel
+$('#tt').tabs('update', {
+	tab: tab,
+	options: {
+		title: 'New Title',
+		href: 'get_content.php'  // the new content URL
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>enableTab</TD>
+    <TD>which</TD>
+    <TD>使指定的选项卡面板 'which' 参数可以标题或索引的选项卡面板。这个方法是可用的,因为1.3版本。 
+      <P>示例:</P><PRE>$('#tt').tabs('enableTab', 1);	// enable the second tab panel
+$('#tt').tabs('enableTab', 'Tab2');	enable the tab panel that has 'Tab2' title
+</PRE></TD></TR>
+  <TR>
+    <TD>disableTab</TD>
+    <TD>which</TD>
+    <TD>禁用指定的选项卡面板,'which' 参数可以标题或索引的选项卡面板。这个方法是可用的,因为1.3版本。<BR>
+      <P>示例:</P><PRE>$('#tt').tabs('disableTab', 1);	// disable the second tab panel.
+</PRE></TD></TR></TBODY></TABLE>
+<H4>选项卡面板</H4>
+<P>选项卡面板属性在控制面板组件中定义，以下是一些常用属性。</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>id</TD>
+    <TD>string</TD>
+    <TD>选项卡面板的ID。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>title</TD>
+    <TD>string</TD>
+    <TD>选项卡面板的标题。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>content</TD>
+    <TD>string</TD>
+    <TD>选项卡面板的内容。</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>href</TD>
+    <TD>string</TD>
+    <TD>从超链接载入远程内容到选项卡 面板。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>cache</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将缓存选项卡面板，当href（超链接）属性被设置时有效。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>iconCls</TD>
+    <TD>string</TD>
+    <TD>一个显示选项卡面板标题图标的CSS类。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>number</TD>
+    <TD>选项卡面板的宽度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>height</TD>
+    <TD>number</TD>
+    <TD>选项卡面板的高度。</TD>
+    <TD>auto</TD></TR></TBODY></TABLE>
+<P>额外属性</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>closable</TD>
+    <TD>boolean</TD>
+    <TD>当这是为true时，选项卡面板将会显示一个关闭按钮，点击该按钮将关闭选项卡。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>selected</TD>
+    <TD>boolean</TD>
+    <TD>当设置为true时，将会默认显示该选项卡下的内容。</TD>
+    <TD>false</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-tabs');
+		</SCRIPT>
+</BODY></HTML>

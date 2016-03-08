@@ -1,0 +1,207 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>numberbox - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>数字输入框 - NumberBox</H3>
+<P><SPAN style="FONT-SIZE: 12px">继承至<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">$.fn.validatebox.defaults.覆盖默认值<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">$.fn.numberbox.defaults.</SPAN></SPAN></SPAN></P>
+<P><SPAN style="FONT-SIZE: 12px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">使用<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">numberbox 
+让我们的用户只能输入数值类型,可以转换一个input元素到不同的类型,例如:<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">numeric,<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">percentage, 
+currency,等等...多数类型的input的定义</SPAN></SPAN></SPAN></SPAN></SPAN></SPAN><SPAN 
+style="FONT-SIZE: 12px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">是依赖与<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">'formatter' 
+和 'parser' 函数之上的.</SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></P>
+<P>. </P><IMG src="images/numberbox.png" 
+tppabs="http://jeasyui.com/documentation/images/numberbox.png"> 
+<H4>Dependencies</H4>
+<UL>
+  <LI>validatebox </LI></UL>
+<H4>Usage</H4>
+<P>根据标记创建<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">numberbox&nbsp;</SPAN>.</P><TEXTAREA class=html name=code-numberbox>	&lt;input type="text" class="easyui-numberbox" value="100" data-options="min:0,precision:2"&gt;&lt;/input&gt;
+</TEXTAREA> 
+<P>Create numberbox using javascript.</P><TEXTAREA class=html name=code-numberbox>	&lt;input type="text" id="nn"&gt;&lt;/input&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-numberbox>	$('#nn').numberbox({
+		min:0,
+		precision:2
+	});
+</TEXTAREA> <BR>
+<H4>Properties</H4>
+<P>使用javascript创建<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">numberbox</SPAN>.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>disabled</TD>
+    <TD>boolean</TD>
+    <TD>定义是否禁用该文本框.</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>value</TD>
+    <TD>number</TD>
+    <TD>默认值.</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>min</TD>
+    <TD>number</TD>
+    <TD>允许最小值.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>max</TD>
+    <TD>number</TD>
+    <TD>允许最大值.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>precision</TD>
+    <TD>number</TD>
+    <TD>小数分隔符之后的显示最大精度.</TD>
+    <TD>0</TD></TR>
+  <TR>
+    <TD>decimalSeparator</TD>
+    <TD>string</TD>
+    <TD>小数分隔符分割整数和小数部分的数字.</TD>
+    <TD>.</TD></TR>
+  <TR>
+    <TD>groupSeparator</TD>
+    <TD>string</TD>
+    <TD>这个字符分割整数组,显示成千上百万的时候.</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>prefix</TD>
+    <TD>string</TD>
+    <TD>前缀字符串.</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>suffix</TD>
+    <TD>string</TD>
+    <TD>后缀字符串.</TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>formatter</TD>
+    <TD>function(value)</TD>
+    <TD>一个转换<SPAN style="TEXT-ALIGN: left; FONT-SIZE: 14px">numberbox 
+      值的函数</SPAN>.返回string值将显示到文本框. </TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>parser</TD>
+    <TD>function(s)</TD>
+    <TD>一个转换string的函数. 返回numberbox值. </TD>
+    <TD></TD></TR></TBODY></TABLE>
+<H4>Events</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameters</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>onChange</TD>
+    <TD>newValue,oldValue</TD>
+    <TD>当文本框的值改变的时候触发.</TD></TR></TBODY></TABLE>
+<H4>Methods</H4>
+<P>方法继承至 validatebox, 以下是<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">numberbox新增或者重写的方法</SPAN>.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameter</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回 numberbox options对象.</TD></TR>
+  <TR>
+    <TD>destroy</TD>
+    <TD>none</TD>
+    <TD>销毁 numberbox 对象.</TD></TR>
+  <TR>
+    <TD>disable</TD>
+    <TD>none</TD>
+    <TD>禁用组件.</TD></TR>
+  <TR>
+    <TD>enable</TD>
+    <TD>none</TD>
+    <TD>启用组件.</TD></TR>
+  <TR>
+    <TD>fix</TD>
+    <TD>none</TD>
+    <TD>修复值为有效值.</TD></TR>
+  <TR>
+    <TD>setValue</TD>
+    <TD>value</TD>
+    <TD>设置 numberbox 值. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#nn').numberbox('setValue', 206.12);
+</PRE></TD></TR>
+  <TR>
+    <TD>getValue</TD>
+    <TD>none</TD>
+    <TD>得到 numberbox 值. 
+      <P>Code example:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">var v = $('#nn').numberbox('getValue');
+alert(v);
+</PRE></TD></TR>
+  <TR>
+    <TD>clear</TD>
+    <TD>none</TD>
+    <TD>清空numberbox 值.</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-numberbox');
+		</SCRIPT>
+</BODY></HTML>

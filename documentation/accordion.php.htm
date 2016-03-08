@@ -1,0 +1,215 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>accordion - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>伸缩面板 - Accordion</H3>
+<P>使用$.fn.accordion.defaults重载默认值</P>
+<P>伸缩面板允许您提供多个面板和显示一次。每个小组有内置支持扩展和收缩。点击一个面板标题展开或折叠,面板的身体。面板内容可以通过ajax加载通过指定一个“href”属性。用户可以定义一个小组被选中。如果没有指定,那么第一个面板是默认了。 
+</P><IMG src="images/accordion.png" 
+tppabs="http://jeasyui.com/documentation/images/accordion.png"> 
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="panel.php.htm">面版 - panel</A> </LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<H5>创建可伸缩面板</H5>
+<P>使用html标签创建可伸缩面板，只须要对&lt;div&gt;标签引用'easyui-accordion'类。</P><TEXTAREA class=html name=code-accordion>	&lt;div id="aa" class="easyui-accordion" style="width:300px;height:200px;"&gt;
+		&lt;div title="Title1" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;"&gt;
+			&lt;h3 style="color:#0099FF;"&gt;Accordion for jQuery&lt;/h3&gt;
+			&lt;p&gt;Accordion is a part of easyui framework for jQuery. 
+			It lets you define your accordion component on web page more easily.&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div title="Title2" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;"&gt;
+			content2
+		&lt;/div&gt;
+		&lt;div title="Title3"&gt;
+			content3
+		&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>在后面将介绍如何改变或者重建可伸缩面板以及修改一些特性。</P><TEXTAREA class=js name=code-accordion>	$('#aa').accordion({
+		animate:false
+	});
+</TEXTAREA> <BR>
+<H5>刷新可伸缩面板的内容</H5>
+<P>调用'getSelected'方法获取当前面板（的名称），接着可以调用控制面板的'refresh'方法来载入新的内容。</P><TEXTAREA class=js name=code-accordion>	var pp = $('#aa').accordion('getSelected');	// get the selected panel
+	if (pp){
+		pp.panel('refresh','new_content.php');	// call 'refresh' method to load new content
+	}
+</TEXTAREA> 
+<P>&nbsp;</P>
+<H4>容器选项（Container Options）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>number</TD>
+    <TD>伸缩面板所在容器的宽度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>height</TD>
+    <TD>number</TD>
+    <TD>伸缩面板所在容器的高度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>fit</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true，可伸缩面板所在容器将铺满它所在的父容器（浏览器）</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>border</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示边框。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>animate</TD>
+    <TD>boolean</TD>
+    <TD>定义当延伸或者折叠面板时是否显示动画效果。</TD>
+    <TD>true</TD></TR></TBODY></TABLE>
+<H4>面版选项（Panel Options）</H4>
+<P>可伸缩面板继承控制面板的属性，以下是额外的属性:</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>selected</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将默认展开面板。</TD>
+    <TD>false</TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onSelect</TD>
+    <TD>title,index</TD>
+    <TD>当一个伸缩面板被选择时触发。</TD></TR>
+  <TR>
+    <TD>onAdd</TD>
+    <TD>title,index</TD>
+    <TD>在一个新面板被添加时触发。</TD></TR>
+  <TR>
+    <TD>onBeforeRemove</TD>
+    <TD>title,index</TD>
+    <TD>在伸缩面板被移除之前触发，返回false将取消移除。</TD></TR>
+  <TR>
+    <TD>onRemove</TD>
+    <TD>title,index</TD>
+    <TD>在一个伸缩面板被移除时触发。</TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回容器属性对象。</TD></TR>
+  <TR>
+    <TD>panels</TD>
+    <TD>none</TD>
+    <TD>获取所有的面板。</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>none</TD>
+    <TD>重置伸缩面板。</TD></TR>
+  <TR>
+    <TD>getSelected</TD>
+    <TD>none</TD>
+    <TD>获取被选择的面板。</TD></TR>
+  <TR>
+    <TD>getPanel</TD>
+    <TD>which</TD>
+    <TD>获取特定的伸缩面板。 
+      'which'<SPAN>参数可以是</SPAN><SPAN>面板</SPAN><SPAN>的</SPAN><SPAN>标题</SPAN><SPAN>或索引</SPAN><SPAN>。</SPAN></TD></TR>
+  <TR>
+    <TD>getPanelIndex</TD>
+    <TD>panel</TD>
+    <TD><SPAN>获取</SPAN><SPAN>特定面板</SPAN><SPAN>索引</SPAN><SPAN>。</SPAN><SPAN>此</SPAN><SPAN>方法是可行的</SPAN><SPAN>，</SPAN><SPAN>因为</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN><BR><SPAN>下面的例子</SPAN><SPAN>演示了如何获取</SPAN><SPAN>选定的</SPAN><SPAN>面板索引</SPAN><SPAN>。</SPAN><PRE>var p = $('#aa').accordion('getSelected');
+if (p){
+	var index = $('#aa').accordion('getPanelIndex', p);
+	alert(index);
+}
+</PRE></TD></TR>
+  <TR>
+    <TD>select</TD>
+    <TD>which</TD>
+    <TD>选择特定的伸缩面板。. 'which' 
+      <SPAN>参数可以是</SPAN><SPAN>面板</SPAN><SPAN>的</SPAN><SPAN>标题</SPAN><SPAN>或索引</SPAN><SPAN>。</SPAN></TD></TR>
+  <TR>
+    <TD>add</TD>
+    <TD>options</TD>
+    <TD><SPAN>添加一个新的</SPAN><SPAN>面板</SPAN><SPAN>。</SPAN><SPAN>默认情况下，</SPAN><SPAN>面板</SPAN><SPAN>将成为</SPAN><SPAN>选择</SPAN><SPAN>。</SPAN><SPAN>要添加一个</SPAN><SPAN>未选中的</SPAN><SPAN>新的</SPAN><SPAN>面板</SPAN><SPAN>，</SPAN><SPAN>通过</SPAN><SPAN 
+      class=atn>“</SPAN><SPAN>selected</SPAN><SPAN 
+      class=atn>”</SPAN><SPAN>属性并将其设置</SPAN><SPAN>为false</SPAN>. 
+      <P>示例:</P><PRE>$('#aa').accordion('add', {
+	title: 'New Title',
+	content: 'New Content',
+	selected: false
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>remove</TD>
+    <TD>which</TD>
+    <TD>移除特定的面板。&nbsp;'which' 
+      <SPAN>参数可以是</SPAN><SPAN>面板</SPAN><SPAN>的</SPAN><SPAN>标题</SPAN><SPAN>或索引</SPAN><SPAN>。</SPAN></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-accordion');
+		</SCRIPT>
+</BODY></HTML>

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>messager - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>消息窗口 -&nbsp; Messager</H3>
+<P><SPAN style="FONT-SIZE: 12px">覆盖默认值<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;$.messager.defaults.</SPAN></SPAN></P>
+<P><SPAN style="FONT-SIZE: 12px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">messager提供不同类型的消息框,包含<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">confirm, 
+prompt, progress等等.所有的消息框都是异步的,用户可以使用<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">messager回调函数做交互</SPAN></SPAN></SPAN></SPAN></SPAN>. 
+</P><IMG src="images/messager.png" 
+tppabs="http://jeasyui.com/documentation/images/messager.png"> 
+<H4>Dependencies</H4>
+<UL>
+  <LI>window 
+  <LI>linkbutton 
+  <LI>progressbar </LI></UL>
+<H4>Usage</H4><TEXTAREA class=js name=code-messager>	$.messager.alert('Warning','The warning message');
+	$.messager.confirm('Confirm','Are you sure you want to delete record?',function(r){
+		if (r){
+			alert('ok');
+		}
+	});
+</TEXTAREA> 
+<H4>Properties</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>ok</TD>
+    <TD>string</TD>
+    <TD>Ok 按钮显示文本.</TD>
+    <TD>Ok</TD></TR>
+  <TR>
+    <TD>cancel</TD>
+    <TD>string</TD>
+    <TD>Cancel 按钮显示文本.</TD>
+    <TD>Cancel</TD></TR></TBODY></TABLE>
+<H4>Methods</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameters</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>$.messager.show</TD>
+    <TD>options</TD>
+    <TD>显示一个消息窗体在屏幕的右下. options参数是一个配置对象:<BR>showType:定义消息窗体如何显示 可用值有: 
+      null,slide,fade,show. 默认值是slide.<BR>showSpeed: 定义消息窗体最终显示的毫秒数. 默认值是 
+      600.<BR>width: 定义消息窗体宽度.默认值是 250.<BR>height: 定义消息窗体高度. 默认值是100.<BR>msg: 
+      显示的消息文本.<BR>title: 标题文本显示到panel的头部的.<BR>timeout: 如果定义为 
+      0,消息窗体将不会关闭除非用户关闭.定义为不是0,消息窗体将在时间超时后自动关闭. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$.messager.show({
+	title:'My Title',
+	msg:'Message will be closed after 5 seconds.',
+	timeout:5000,
+	showType:'slide'
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>$.messager.alert</TD>
+    <TD>title, msg, icon, fn</TD>
+    <TD>显示一个alter窗体.参数:<BR>title: 标题文本,显示在panel的头部的.<BR>msg: 
+      显示的消息文本.<BR>icon:显示icon图片,可用值有: error,question,info,warning.<BR>fn: 
+      窗体关闭的时候触发的回调函数. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$.messager.alert('My Title','Here is a info message!','info');
+</PRE></TD></TR>
+  <TR>
+    <TD>$.messager.confirm</TD>
+    <TD>title, msg, fn</TD>
+    <TD>显示一个确认消息窗体有一个OK和一个Cancel按钮,参数:<BR>title:标题文本显示在panel的头部的.<BR>msg:显示的消息文本.<BR>fn(b): 
+      回调函数,当用户点击OK按钮传入true值到函数,其他则传入false. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$.messager.confirm('Confirm', 'Are you sure to exit this system?', function(r){
+	if (r){
+		// exit action;
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>$.messager.prompt</TD>
+    <TD>title, msg, fn</TD>
+    <TD>显示一个消息窗体,一个OK和一个Cancel按钮,提示用户输入一些文本,参数:<BR>title: 
+      显示到panel头部的标题文本.<BR>msg: 显示的消息文本.<BR>fn(val): 回调函数,value参数是用户输入的值. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$.messager.prompt('Prompt', 'Please enter your name:', function(r){
+	if (r){
+		alert('Your name is:' + r);
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>$.messager.progress</TD>
+    <TD>options or method</TD>
+    <TD>显示一个进度消息窗体.&nbsp;<BR>选项定义如下:<BR>title: 
+      显示到panel头部的标题文本,默认值''.&nbsp;<BR>msg: 消息框的body文本,默认值''.&nbsp;<BR>text: 
+      这个文本显示到进度条上, 默认未定义.&nbsp;<BR>interval: 每个进度更新的毫秒值长度,默认值 
+      300.&nbsp;<BR><BR>方法定义如下:<BR>bar:得到 progressbar 对象.&nbsp;<BR>close: 
+      关闭进度条窗体.&nbsp;<BR>
+      <H5 style="MARGIN: 5px 0px; COLOR: rgb(153,0,0); FONT-SIZE: 14px"><A 
+      name=t4></A>示例代码</H5>显示进度消息框.&nbsp;<BR><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">	$.messager.progress(); 
+</PRE>现在关闭进度消息框.&nbsp;<BR><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">	$.messager.progress('close');
+</PRE><BR></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-messager');
+		</SCRIPT>
+</BODY></HTML>

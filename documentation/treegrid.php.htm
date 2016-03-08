@@ -1,0 +1,379 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>treegrid - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>树形表格 - TreeGrid</H3>
+<P><SPAN style="FONT-SIZE: 12px">从<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">$.fn.datagrid.defaults.继承,覆盖默认值<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">$.fn.treegrid.defaults.</SPAN></SPAN></SPAN></P>
+<P><SPAN style="FONT-SIZE: 12px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid 
+是使用显示分层数据在grid中,<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid 
+是基于</SPAN><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">datagrid和关联<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treeview 
+和关联可编辑的grid,<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid 
+允许你创建定制的,异步加载展开行数据,</SPAN></SPAN></SPAN></SPAN><BR></SPAN></SPAN></SPAN></P>
+<P><SPAN style="FONT-SIZE: 12px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">和显示分层的数据在多列中.</SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></P><IMG 
+src="images/treegrid2.png" 
+tppabs="http://jeasyui.com/tutorial/tree/images/treegrid2.png"> 
+<H4>Dependencies</H4>
+<UL>
+  <LI>datagrid </LI></UL>
+<H4>Usage Example</H4>
+<P>通过html标记创建<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid 
+,大多数情况下<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid 
+遵循相同的结构格式化为datagrid</SPAN></SPAN></P><TEXTAREA class=html name=code-treegrid>	&lt;table id="tt" class="easyui-treegrid" style="width:600px;height:400px"
+			data-options="url:'get_data.php',idField:'id',treeField:'name'"&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th data-options="field:'name',width:180"&gt;Task Name&lt;/th&gt;
+				&lt;th data-options="field:'persons',width:60,align:'right'"&gt;Persons&lt;/th&gt;
+				&lt;th data-options="field:'begin',width:80"&gt;Begin Date&lt;/th&gt;
+				&lt;th data-options="field:'end',width:80"&gt;End Date&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+	&lt;/table&gt;
+</TEXTAREA> 
+<P>使用javascript创建<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid</SPAN></P><TEXTAREA class=html name=code-treegrid>	&lt;table id="tt" style="width:600px;height:400px"&gt;&lt;/table&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-treegrid>	$('#tt').treegrid({
+		url:'get_data.php',
+		idField:'id',
+		treeField:'name',
+		columns:[[
+			{title:'Task Name',field:'name',width:180},
+			{field:'persons',title:'Persons',width:60,align:'right'},
+			{field:'begin',title:'Begin Date',width:80},
+			{field:'end',title:'End Date',width:80}
+		]]
+	});
+</TEXTAREA> <BR>
+<H4>Properties</H4>
+<P>属性从 datagrid继承,以下是<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">treegrid新增的属性</SPAN>.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>idField</TD>
+    <TD>string</TD>
+    <TD>定义键字段标识一个tree节点,该项是必须的.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>treeField</TD>
+    <TD>string</TD>
+    <TD>定义tree节点字段,该项是必须的.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>animate</TD>
+    <TD>boolean</TD>
+    <TD>定义当节点展开/关闭的时候,是否显示动画效果.</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>loader</TD>
+    <TD>function(param,success,error)</TD>
+    <TD>定义如何从远程服务器端加载数据. 返回false将终止这个动作. 这个函数提供一下参数 :<BR>param: 
+      传递给远程服务器的参数对象.<BR>success(data): 当检索数据成功之后执行的回调函数.<BR>error(): 
+      当检索数据失败的时候调用的回调函数.<BR>error(): the callback function that will be called 
+      when failed to retrieve data. </TD>
+    <TD>json loader</TD></TR>
+  <TR>
+    <TD>loadFilter</TD>
+    <TD>function(data,parentId)</TD>
+    <TD>返回过滤后的显示数据.</TD>
+    <TD></TD></TR></TBODY></TABLE><BR>
+<H4>Events</H4>
+<P>事件从<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">datagrid继承</SPAN>, 
+以下是<SPAN 
+style="FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">datagrid新增事件</SPAN>.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameters</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>onClickRow</TD>
+    <TD>row</TD>
+    <TD>当用户点击一个节点时触发.</TD></TR>
+  <TR>
+    <TD>onDblClickRow</TD>
+    <TD>row</TD>
+    <TD>当用户双击一个节点时触发.</TD></TR>
+  <TR>
+    <TD>onClickCell</TD>
+    <TD>field,row</TD>
+    <TD>当用户点击一个表格的时触发.</TD></TR>
+  <TR>
+    <TD>onDblClickCell</TD>
+    <TD>field,row</TD>
+    <TD>当用户双击一个表格的时触发.</TD></TR>
+  <TR>
+    <TD>onBeforeLoad</TD>
+    <TD>row, param</TD>
+    <TD>一个请求去加载数据之前触发, 返回false将取消加载动作.</TD></TR>
+  <TR>
+    <TD>onLoadSuccess</TD>
+    <TD>row, data</TD>
+    <TD>数据加载成功之后触发.</TD></TR>
+  <TR>
+    <TD>onLoadError</TD>
+    <TD>arguments</TD>
+    <TD>数据加载失败之后触发,<SPAN style="FONT-SIZE: 14px">arguments 
+      参数和jQuery.ajax的error函数一样</SPAN>.</TD></TR>
+  <TR>
+    <TD>onBeforeExpand</TD>
+    <TD>row</TD>
+    <TD>节点展开之前触发,返回false将取消展开动作.</TD></TR>
+  <TR>
+    <TD>onExpand</TD>
+    <TD>row</TD>
+    <TD>节点展开后触发.</TD></TR>
+  <TR>
+    <TD>onBeforeCollapse</TD>
+    <TD>row</TD>
+    <TD>节点折叠之前触发,返回false取消折叠动作.</TD></TR>
+  <TR>
+    <TD>onCollapse</TD>
+    <TD>row</TD>
+    <TD>节点折叠后触发.</TD></TR>
+  <TR>
+    <TD>onContextMenu</TD>
+    <TD>e, row</TD>
+    <TD>在节点上右键点击触发.</TD></TR>
+  <TR>
+    <TD>onBeforeEdit</TD>
+    <TD>row</TD>
+    <TD>用户开始编辑一个节点时触发.</TD></TR>
+  <TR>
+    <TD>onAfterEdit</TD>
+    <TD>row,changes</TD>
+    <TD>用户结束编辑节点时触发.</TD></TR>
+  <TR>
+    <TD>onCancelEdit</TD>
+    <TD>row</TD>
+    <TD>用户取消编辑节点时触发</TD></TR></TBODY></TABLE><BR>
+<H4>Methods</H4>
+<P>许多方法提供一个参数,参数名为id, 这个参数指明tree节点值. </P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameter</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回<SPAN style="FONT-SIZE: 14px">treegrid的</SPAN> options对象.</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>options</TD>
+    <TD>设置treegrid 大小,<SPAN 
+      style="FONT-SIZE: 14px">options包含两个属性</SPAN>:<BR>width: <SPAN 
+      style="FONT-SIZE: 14px">treegrid新的宽度</SPAN>.<BR>height: <SPAN 
+      style="FONT-SIZE: 14px">treegrid新的高度</SPAN>.</TD></TR>
+  <TR>
+    <TD>fixRowHeight</TD>
+    <TD>id</TD>
+    <TD>固定特定行高度.</TD></TR>
+  <TR>
+    <TD>loadData</TD>
+    <TD>data</TD>
+    <TD>加载 treegrid 数据.</TD></TR>
+  <TR>
+    <TD>reload</TD>
+    <TD>id</TD>
+    <TD>重新加载treegrid 数据.如果传递了id参数, 重新加载特定的tree行, 其他的重新加载所有tree行. 
+      <P>示例代码:</P><PRE><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#tt').treegrid('reload', 2);	// 重新加载指定id值是2的行
+$('#tt').treegrid('reload');	// 重新加载所有行</PRE></PRE></TD></TR>
+  <TR>
+    <TD>reloadFooter</TD>
+    <TD>footer</TD>
+    <TD>重新加载页脚数据.</TD></TR>
+  <TR>
+    <TD>getData</TD>
+    <TD>none</TD>
+    <TD>得到加载数据.</TD></TR>
+  <TR>
+    <TD>getFooterRows</TD>
+    <TD>none</TD>
+    <TD>得到页脚数据.</TD></TR>
+  <TR>
+    <TD>getRoot</TD>
+    <TD>none</TD>
+    <TD>得到根节点, 返回的是节点对象</TD></TR>
+  <TR>
+    <TD>getRoots</TD>
+    <TD>none</TD>
+    <TD>得到根节点, 返回的是节点数组.</TD></TR>
+  <TR>
+    <TD>getParent</TD>
+    <TD>id</TD>
+    <TD>得到父节点.</TD></TR>
+  <TR>
+    <TD>getChildren</TD>
+    <TD>id</TD>
+    <TD>得到子节点</TD></TR>
+  <TR>
+    <TD>getSelected</TD>
+    <TD>none</TD>
+    <TD>得到选中节点并返回它, 如果没有选中节点返回null</TD></TR>
+  <TR>
+    <TD>getSelections</TD>
+    <TD>none</TD>
+    <TD>得到所有的选中节点.</TD></TR>
+  <TR>
+    <TD>getLevel</TD>
+    <TD>id</TD>
+    <TD>得到特定的节点的层级.</TD></TR>
+  <TR>
+    <TD>find</TD>
+    <TD>id</TD>
+    <TD>查找特定的节点和返回节点数据.</TD></TR>
+  <TR>
+    <TD>select</TD>
+    <TD>id</TD>
+    <TD>选中一个节点.</TD></TR>
+  <TR>
+    <TD>unselect</TD>
+    <TD>id</TD>
+    <TD>取消选中一个节点.</TD></TR>
+  <TR>
+    <TD>selectAll</TD>
+    <TD>none</TD>
+    <TD>选中所有节点.</TD></TR>
+  <TR>
+    <TD>unselectAll</TD>
+    <TD>none</TD>
+    <TD>取消选中所有节点.</TD></TR>
+  <TR>
+    <TD>collapse</TD>
+    <TD>id</TD>
+    <TD>折叠一个节点.</TD></TR>
+  <TR>
+    <TD>expand</TD>
+    <TD>id</TD>
+    <TD>展开一个节点.</TD></TR>
+  <TR>
+    <TD>collapseAll</TD>
+    <TD>id</TD>
+    <TD>折叠所有节点.</TD></TR>
+  <TR>
+    <TD>expandAll</TD>
+    <TD>id</TD>
+    <TD>展开所有节点.</TD></TR>
+  <TR>
+    <TD>expandTo</TD>
+    <TD>id</TD>
+    <TD>展开从根节点到指定的节点.</TD></TR>
+  <TR>
+    <TD>toggle</TD>
+    <TD>id</TD>
+    <TD>切换节点的 expanded(展开)/collapsed (关闭)状态.</TD></TR>
+  <TR>
+    <TD>append</TD>
+    <TD>param</TD>
+    <TD>附加一个节点到父节点. 'param' 参数包含以下属性:<BR>parent:父节点id , 如果没有分配, 
+      附加作为根节点.<BR>data: 数组, 节点数据.<BR>示例代码: <PRE style="COLOR: #006600"><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">// 添加一些节点到选中节点
+var node = $('#tt').treegrid('getSelected');
+$('#tt').treegrid('append',{
+	parent: node.id,  // 节点有一个'id'值,定义是通过'idField'属性
+	data: [{
+		id: '073',
+		name: 'name73'
+	}]
+});</PRE></PRE></TD></TR>
+  <TR>
+    <TD>remove</TD>
+    <TD>id</TD>
+    <TD>移除一个节点和其子节点.</TD></TR>
+  <TR>
+    <TD>refresh</TD>
+    <TD>id</TD>
+    <TD>刷新特定的节点.</TD></TR>
+  <TR>
+    <TD>beginEdit</TD>
+    <TD>id</TD>
+    <TD>开始编辑一个节点.</TD></TR>
+  <TR>
+    <TD>endEdit</TD>
+    <TD>id</TD>
+    <TD>结束编辑一个节点.</TD></TR>
+  <TR>
+    <TD>cancelEdit</TD>
+    <TD>id</TD>
+    <TD>取消编辑一个节点.</TD></TR>
+  <TR>
+    <TD>getEditors</TD>
+    <TD>id</TD>
+    <TD>得到特定行编辑器.每一个编辑器都有以下属性:<BR>actions:编辑器可以做的动作.<BR>target: 
+      目标编辑器jQuery对象.<BR>field:字段名.<BR>type:编辑器类型.</TD></TR>
+  <TR>
+    <TD>getEditor</TD>
+    <TD>options</TD>
+    <TD>得到特定的编辑器, <SPAN style="FONT-SIZE: 14px">options 
+      包含两个属性</SPAN>:<BR>id:行节点id.<BR>field: 
+字段名.</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-treegrid');
+		</SCRIPT>
+</BODY></HTML>

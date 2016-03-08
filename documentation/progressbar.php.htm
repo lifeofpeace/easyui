@@ -1,0 +1,139 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>progressbar - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>进度条 - ProgressBar</H3>
+<P>使用$.fn.progressbar.defaults重载默认值。</P>
+<P>进度条可以提供反馈的一个长时间运行的操作的显示进展。这个进程可更新,让用户知道当前执行一些操作。 </P><IMG 
+src="images/progressbar.png" 
+tppabs="http://jeasyui.com/documentation/images/progressbar.png"> 
+<H4>使用方法（Usage Example）</H4>
+<H5>创建进度条</H5>
+<P>进度条组件可以通过html标签或脚本两种方法创建。使用html标签创建更容易，只需要对&lt;div&gt;标签引用'easyui-progressbar'类。 
+</P><TEXTAREA class=html name=code-progressbar>	&lt;div id="p" class="easyui-progressbar" data-options="value:60" style="width:400px;"&gt;&lt;/div&gt;
+</TEXTAREA> 
+<P>Create ProgressBar using javascript.</P><TEXTAREA class=html name=code-progressbar>	&lt;div id="p" style="width:400px;"&gt;&lt;/div&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-progressbar>	$('#p').progressbar({
+		value: 60
+	});
+</TEXTAREA> <BR>
+<H5>Get or Set Value</H5>
+<P>为进度条获取当前进度值并且设置一个新的进度值。</P><TEXTAREA class=js name=code-progressbar>	var value = $('#p').progressbar('getValue');
+	if (value &lt; 100){
+		value += Math.floor(Math.random() * 10);
+		$('#p').progressbar('setValue', value);
+	}
+</TEXTAREA> <BR>
+<H4>属性（Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>string</TD>
+    <TD>设置进度条的宽度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>value</TD>
+    <TD>number</TD>
+    <TD>当前进度，百分比数值。</TD>
+    <TD>0</TD></TR>
+  <TR>
+    <TD>text</TD>
+    <TD>string</TD>
+    <TD>显示在组件中的文本模板。</TD>
+    <TD>{value}%</TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onChange</TD>
+    <TD>newValue,oldValue</TD>
+    <TD>当进度发生改变时触发。 
+      <P>示例:</P><PRE>$('#p').progressbar({
+	onChange: function(value){
+		alert(value)
+	}
+});
+</PRE></TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回进度条属性对象。</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>width</TD>
+    <TD>重置进度条。 
+      <P>示例:</P><PRE>$('#p').progressbar('resize');  // resize the bar with original width
+$('#p').progressbar('resize', 350);  // resize the bar using a new width
+</PRE></TD></TR>
+  <TR>
+    <TD>getValue</TD>
+    <TD>none</TD>
+    <TD>返回当前进度值。</TD></TR>
+  <TR>
+    <TD>setValue</TD>
+    <TD>value</TD>
+    <TD>设置一个新的进度值。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-progressbar');
+		</SCRIPT>
+</BODY></HTML>

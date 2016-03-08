@@ -1,0 +1,221 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>jQuery EasyUI - help you build your web page easily</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="css/main.css" tppabs="http://jeasyui.com/css/main.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="index.htm">jQuery EasyUI 框架帮助你轻松建立站点。</A> 
+    </DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV style="POSITION: relative" id=content>
+<STYLE type=text/css>
+	.item-p{
+		width:150px;
+		float:left;
+		margin-right:20px;
+	}
+	.item-p h4{
+		margin:0;
+		border-bottom:1px solid #ccc;
+		color:#666;
+	}
+	.item-p ul{
+		margin:0 0 20px 0;
+		padding-left:10px;
+	}
+	.item-p li{
+		line-height:150%;
+		list-style-type:none;
+		background:url("css/images/gears.png"/*tpa=http://jeasyui.com/css/images/gears.png*//*tpa=http://jeasyui.com/css/images/gears.png*/) no-repeat 0 center;
+		padding-left:20px;
+	}
+	.e-btn{
+		display:inline-block;
+		background:#ddd;
+		padding:3px 4px;
+		text-decoration:none;
+		border:1px solid #ccc;
+		border-radius:6px;
+		color:#006600;
+	}
+</STYLE>
+
+<DIV style="POSITION: absolute; RIGHT: 10px"><A 
+style="BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none" 
+href="http://me.alipay.com/btboys" target=_blank></A></DIV>
+<H3>欢迎使用&nbsp;jQuery EasyUI 1.3&nbsp;中文帮助手册</H3>
+<H1 style="COLOR: green">将来的你，一定会感谢现在拼命的自己</H1><IMG 
+style="FLOAT: right" src="images/easyui.jpg" 
+tppabs="http://jeasyui.com/images/easyui.jpg"> 
+<P>jQuery EasyUI 框架帮助你轻松建立站点。</P>
+<UL>
+  <LI>easyui是一个基于jquery的集成了各种用户界面的插件。 
+  <LI>使用easyui你不需要写太多javascript代码，一般情况下你只需要使用一些html标记来定义用户接口。 
+  <LI>easyui非常简单，但是功能非常强大。</LI></UL>
+<DIV style="HEIGHT: 20px"></DIV>
+<H4>轻松使用&nbsp;jQuery&nbsp;和 HTML5</H4><IMG style="WIDTH: 200px; FLOAT: right" 
+src="images/html5.gif" tppabs="http://jeasyui.com/images/html5.gif"> 
+<P>jQuery EasyUI 
+<SPAN>提供</SPAN><SPAN>易于</SPAN><SPAN>使用的组件</SPAN><SPAN>，</SPAN><SPAN>它使<SPAN>Web开发人员快速的</SPAN>建立在</SPAN><SPAN>流行的</SPAN><SPAN>jQuery核心和</SPAN><SPAN>HTML5</SPAN><SPAN>的程序页面</SPAN><SPAN>。</SPAN><SPAN>这些功能使</SPAN><SPAN>您的应用程序</SPAN><SPAN>适合</SPAN><SPAN>今天的网络</SPAN><SPAN>。</SPAN><SPAN>有两个</SPAN><SPAN>方法声明</SPAN><SPAN>的UI组件</SPAN>: 
+</P>
+<P>1. <SPAN>直接在</SPAN><SPAN>HTML<SPAN>声明</SPAN><SPAN>组件</SPAN></SPAN></P>
+<DIV style="PADDING-LEFT: 20px; BACKGROUND: #fafafa"><PRE style="COLOR: #006600">&lt;div class="easyui-dialog" style="width:400px;height:200px"
+	data-options="title:'My Dialog',collapsible:true,iconCls:'icon-ok',onOpen:function(){}"&gt;
+	dialog content.
+&lt;/div&gt;
+</PRE></DIV>
+<P>2. 
+<SPAN>编写JavaScript</SPAN><SPAN>代码来创建</SPAN><SPAN>组件</SPAN><SPAN>。</SPAN></P>
+<DIV style="PADDING-LEFT: 20px; BACKGROUND: #fafafa"><PRE style="COLOR: #006600">&lt;input id="cc" style="width:200px" /&gt;
+</PRE><PRE style="COLOR: #006600">$('#cc').combobox({
+	url: ...,
+	required: true,
+	valueField: 'id',
+	textField: 'text'
+});
+</PRE></DIV>
+<DIV style="HEIGHT: 20px"></DIV>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-RIGHT: 40px"><IMG style="WIDTH: 300px" 
+      src="images/demos.jpg" tppabs="http://jeasyui.com/images/demos.jpg"> </TD>
+    <TD style="VERTICAL-ALIGN: top">
+      <H4><FONT size=3><SPAN>教程和</SPAN><SPAN>演示</SPAN></FONT></H4>
+      <P><SPAN>jQuery的</SPAN><SPAN>EasyUI</SPAN><SPAN>提供</SPAN><SPAN>一切你需要</SPAN><SPAN>建立你的</SPAN><SPAN>网页</SPAN><SPAN>。</SPAN><SPAN>这些教程</SPAN><SPAN>将</SPAN><SPAN>告诉你一步</SPAN><SPAN>一步如何</SPAN><SPAN>创建应用程序</SPAN><SPAN>。</SPAN><SPAN>享受</SPAN><SPAN>，希望你</SPAN><SPAN>可以向他们学习</SPAN><SPAN>。</SPAN></P>
+      <P style="MARGIN-TOP: 40px"><A class=e-btn href="" 
+       tppabs="http://jeasyui.com/demo/index.php">演示文档</A> 
+  </P></TD></TR></TBODY></TABLE>
+<DIV style="HEIGHT: 20px"></DIV>
+<H4>All Plugins</H4>
+<P>jQuery EasyUI 提供组件包括功能强大的数据网格，树形表格、 面板、 下拉组合和更多的建设跨浏览器的 web 
+页的完整的集合。用户可以组合使用这些组件，也可以单独使用其中一个。 </P>
+<DIV style="WIDTH: 186px; HEIGHT: 249px" class=item-p>
+<H4>基本</H4>
+<UL>
+  <LI><A href="documentation/parser.php.htm" 
+  tppabs="http://jeasyui.com/documentation/parser.php">语法解析 - parser</A> 
+  <LI><A href="documentation/easyloader.php.htm" 
+  tppabs="http://jeasyui.com/documentation/easyloader.php">简单载入器 - 
+  easyloader</A> 
+  <LI><A href="documentation/draggable.php.htm" 
+  tppabs="http://jeasyui.com/documentation/draggable.php">一般拖动 - draggable</A> 
+  <LI><A href="documentation/droppable.php.htm" 
+  tppabs="http://jeasyui.com/documentation/droppable.php">拖动至容器 - droppable</A> 
+  <LI><A href="documentation/resizable.php.htm" 
+  tppabs="http://jeasyui.com/documentation/resizable.php">缩放 - resizable</A> 
+  <LI><A href="documentation/pagination.php.htm" 
+  tppabs="http://jeasyui.com/documentation/pagination.php">分页 - pagination</A> 
+  <LI><A href="documentation/searchbox.php.htm" 
+  tppabs="http://jeasyui.com/documentation/searchbox.php">搜索框 - searchbox</A> 
+  <LI><A href="documentation/progressbar.php.htm" 
+  tppabs="http://jeasyui.com/documentation/progressbar.php">进度条- progressbar</A> 
+  </LI></UL></DIV>
+<DIV style="WIDTH: 192px; HEIGHT: 144px" class=item-p>
+<H4>布局</H4>
+<UL>
+  <LI><A href="documentation/panel.php.htm" 
+  tppabs="http://jeasyui.com/documentation/panel.php">控制面板 - panel</A> 
+  <LI><A href="documentation/tabs.php.htm" 
+  tppabs="http://jeasyui.com/documentation/tabs.php">选项卡 - tabs</A> 
+  <LI><A href="documentation/accordion.php.htm" 
+  tppabs="http://jeasyui.com/documentation/accordion.php">可伸缩面板 - accordion</A> 
+  <LI><A href="documentation/layout.php.htm" 
+  tppabs="http://jeasyui.com/documentation/layout.php">布局面板 - layout</A> 
+</LI></UL>
+<DIV>
+<H4>窗口</H4>
+<UL>
+  <LI><A href="documentation/window.php.htm" 
+  tppabs="http://jeasyui.com/documentation/window.php">窗口 - window</A> 
+  <LI><A href="documentation/dialog.php.htm" 
+  tppabs="http://jeasyui.com/documentation/dialog.php">对话框 - dialog</A> 
+  <LI><A href="documentation/messager.php.htm" 
+  tppabs="http://jeasyui.com/documentation/messager.php">消息窗口 - messager</A> 
+  </LI></UL></DIV></DIV>
+<DIV style="WIDTH: 185px; HEIGHT: 246px" class=item-p>
+<H4>菜单和按钮</H4>
+<UL>
+  <LI><A href="documentation/menu.php.htm" 
+  tppabs="http://jeasyui.com/documentation/menu.php">菜单 - menu</A> 
+  <LI><A href="documentation/linkbutton.php.htm" 
+  tppabs="http://jeasyui.com/documentation/linkbutton.php">链接按钮 - linkbutton</A> 
+
+  <LI><A href="documentation/menubutton.php.htm" 
+  tppabs="http://jeasyui.com/documentation/menubutton.php">菜单按钮 - menubutton</A> 
+
+  <LI><A href="documentation/splitbutton.php.htm" 
+  tppabs="http://jeasyui.com/documentation/splitbutton.php">分隔按钮 - 
+  splitbutton</A></LI></UL>
+<DIV>
+<H4>数据表 树形菜单</H4>
+<UL>
+  <LI><A href="documentation/datagrid.php.htm" 
+  tppabs="http://jeasyui.com/documentation/datagrid.php">数据表格 - datagrid</A> 
+  <LI><A href="documentation/propertygrid.php.htm" 
+  tppabs="http://jeasyui.com/documentation/propertygrid.php">属性表格 - 
+  propertygrid</A> 
+  <LI><A href="documentation/tree.php.htm" 
+  tppabs="http://jeasyui.com/documentation/tree.php">树型菜单 - tree</A> 
+  <LI><A href="documentation/treegrid.php.htm" 
+  tppabs="http://jeasyui.com/documentation/treegrid.php">树形表格 - 
+  treegrid</A>&nbsp;&nbsp;</LI></UL></DIV></DIV>
+<DIV style="WIDTH: 234px; HEIGHT: 333px" class=item-p>
+<H4>表单</H4>
+<UL>
+  <LI><A href="documentation/form.php.htm" 
+  tppabs="http://jeasyui.com/documentation/form.php">表单 - form</A> 
+  <LI><A href="documentation/validatebox.php.htm" 
+  tppabs="http://jeasyui.com/documentation/validatebox.php">表单验证 - 
+  validatebox</A> 
+  <LI><A href="documentation/combo.php.htm" 
+  tppabs="http://jeasyui.com/documentation/combo.php">自定义组合框 - combo</A> 
+  <LI><A href="documentation/combobox.php.htm" 
+  tppabs="http://jeasyui.com/documentation/combobox.php">可装载组合框 - combobox</A> 
+  <LI><A href="documentation/combotree.php.htm" 
+  tppabs="http://jeasyui.com/documentation/combotree.php">组合树 - combotree</A> 
+  <LI><A href="documentation/combogrid.php.htm" 
+  tppabs="http://jeasyui.com/documentation/combogrid.php">组合表格 - combogrid</A> 
+  <LI><A href="documentation/numberbox.php.htm" 
+  tppabs="http://jeasyui.com/documentation/numberbox.php">数字验证框 - numberbox</A> 
+  <LI><A href="documentation/datebox.php.htm" 
+  tppabs="http://jeasyui.com/documentation/datebox.php">日期组合框 - datebox</A> 
+  <LI><A href="documentation/datetimebox.php.htm" 
+  tppabs="http://jeasyui.com/documentation/datetimebox.php">日期时间组合框 - 
+  datetimebox</A> 
+  <LI><A href="documentation/calendar.php.htm" 
+  tppabs="http://jeasyui.com/documentation/calendar.php">日历 - calendar</A> 
+  <LI><A href="documentation/spinner.php.htm" 
+  tppabs="http://jeasyui.com/documentation/spinner.php">调节器 - spinner</A> 
+  <LI><A href="documentation/numberspinner.php.htm" 
+  tppabs="http://jeasyui.com/documentation/numberspinner.php">数字调节器 - 
+  numberspinner</A> 
+  <LI><A href="documentation/timespinner.php.htm" 
+  tppabs="http://jeasyui.com/documentation/timespinner.php">时间调节器 - 
+  timespinner</A> 
+  <LI><A href="documentation/slider.php.htm" 
+  tppabs="http://jeasyui.com/documentation/slider.php">滑动条 - slider</A> 
+</LI></UL></DIV>
+<DIV id=footer>
+	<DIV>Copyright © 2015 <a href="http://itmyhome.com" target="_blank">麦田技术博客</a></DIV>
+</DIV></DIV>
+</DIV></BODY></HTML>

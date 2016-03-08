@@ -1,0 +1,214 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>combogrid - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>组合表格 - ComboGrid</H3>
+<P>继承至<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;$.fn.combo.defaults 
+和 $.fn.datagrid.defaults.覆盖默认值<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;$.fn.combogrid.defaults.</SPAN></SPAN></P>
+<P><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px"><SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid 
+关联了一个可编辑的文本框和一个下拉<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">datagrid 
+panel,允许用户从里面快速查找和选择,<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid 
+提供按键导航选择项</SPAN></SPAN></SPAN></SPAN></SPAN></P>
+<P>. </P><IMG src="images/combogrid.png" 
+tppabs="http://jeasyui.com/documentation/images/combogrid.png"> 
+<H4>Dependencies</H4>
+<UL>
+  <LI>combo 
+  <LI>datagrid </LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<H5>Create ComboGrid</H5>
+<P>1..根据标记创建<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid</SPAN>.</P><TEXTAREA class=html name=code-combogrid>	&lt;select id="cc" class="easyui-combogrid" name="dept" style="width:250px;"
+			data-options="
+				panelWidth:450,
+				value:'006',
+				idField:'code',
+				textField:'name',
+				url:'datagrid_data.json',
+				columns:[[
+					{field:'code',title:'Code',width:60},
+					{field:'name',title:'Name',width:100},
+					{field:'addr',title:'Address',width:120},
+					{field:'col4',title:'Col41',width:100}
+				]]
+			"&gt;&lt;/select&gt;
+</TEXTAREA> 
+<P>2. <SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid 
+可以从已经存在的<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&lt;select&gt; 
+or &lt;input&gt; 元素通过javascript创建</SPAN></SPAN>. </P><TEXTAREA class=html name=code-combogrid>	&lt;input id="cc" name="dept" value="01" /&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-combogrid>	$('#cc').combogrid({
+		panelWidth:450,
+		value:'006',
+	 
+		idField:'code',
+		textField:'name',
+		url:'datagrid_data.json',
+		columns:[[
+			{field:'code',title:'Code',width:60},
+			{field:'name',title:'Name',width:100},
+			{field:'addr',title:'Address',width:120},
+			{field:'col4',title:'Col41',width:100}
+		]]
+	});
+</TEXTAREA> <BR>
+<H5>Autocomplete Functionality</H5>
+<P>让我们添加一个高级的自动完成的函数功能到<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid,下拉<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">datagrid 
+根据用户的输入将显示适合的结果</SPAN></SPAN>. </P><TEXTAREA class=js name=code-combogrid>$('#cc').combogrid({
+	delay: 500,
+	mode: 'remote',
+	url: 'get_data.php',
+	idField: 'id',
+	textField: 'name',
+	columns: [[
+		{field:'code',title:'Code',width:120,sortable:true},
+		{field:'name',title:'Name',width:400,sortable:true}
+	]]
+});
+</TEXTAREA> 
+<P>在服务器端,'q'参数必须先检索,用户可以查询数据库然后返回一个sql的结果以json的格式发送给客户端. </P>
+<P>get_data.php: </P><TEXTAREA class=js name=code-combogrid>$q = isset($_POST['q']) ? $_POST['q'] : '';  // the request parameter
+// query database and return JSON result data
+$rs = mysql_query("select * from item where name like '$q%'");
+echo json_encode(...);
+</TEXTAREA> <BR>
+<H4>Properties</H4>
+<P>属性继承至 combo 和 datagrid,以下是<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid新增的属性</SPAN>.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Type</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH>
+    <TH><STRONG>Default</STRONG></TH></TR>
+  <TR>
+    <TD>loadMsg</TD>
+    <TD>string</TD>
+    <TD>当datagrid加载远程的服务器端数据的时候显示的消息.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>idField</TD>
+    <TD>string</TD>
+    <TD>id字段名称.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>textField</TD>
+    <TD>string</TD>
+    <TD>显示到文本框中的文本字段.</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>mode</TD>
+    <TD>string</TD>
+    <TD>当文本改变的时候定义如何加载datagrid数据.如果设置为'remote' <SPAN 
+      style="TEXT-ALIGN: left; FONT-SIZE: 14px">combogrid 
+      &nbsp;将从远程服务器加载数据</SPAN>.当设置为'remote'模式时候,任何用户输入的信息将发送作为http参数,参数名为'q'到服务器端检索新的数据. 
+    </TD>
+    <TD>local</TD></TR>
+  <TR>
+    <TD>filter</TD>
+    <TD>function(q, row)</TD>
+    <TD>当'mode'设置为'local'的时候,定义如何选择本地数据.<BR>&nbsp;返回true代表选择该行. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combogrid({
+	filter: function(q, row){
+		var opts = $(this).combogrid('options');
+		return row[opts.textField].indexOf(q) == 0;
+	}
+});
+</PRE></TD>
+    <TD></TD></TR></TBODY></TABLE><BR>
+<H4>Events</H4>
+<P>事件继承至<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">&nbsp;combo 
+and datagrid</SPAN>.</P>
+<H4>Methods</H4>
+<P>方法继承至 combo,以下是<SPAN 
+style="TEXT-ALIGN: left; FONT-FAMILY: Arial,Helvetica,'Nimbus Sans L',sans-serif; FONT-SIZE: 14px">combogrid新增或重写的方法</SPAN>.</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>Name</STRONG></TH>
+    <TH><STRONG>Parameter</STRONG></TH>
+    <TH><STRONG>Description</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回 options 对象.</TD></TR>
+  <TR>
+    <TD>grid</TD>
+    <TD>none</TD>
+    <TD>返回datagrid 对象.以下示例展示如何得到选择行: <PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">var g = $('#cc').combogrid('grid');	// 得到datagrid 对象
+var r = g.datagrid('getSelected');	// 得到选择行
+alert(r.name);
+</PRE></TD></TR>
+  <TR>
+    <TD>setValues</TD>
+    <TD>values</TD>
+    <TD>设置组件值数组. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combogrid('setValues', ['001','007']);
+</PRE></TD></TR>
+  <TR>
+    <TD>setValue</TD>
+    <TD>value</TD>
+    <TD>设置组件值. 
+      <P>示例代码:</P><PRE style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: rgb(250,250,250); PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-FAMILY: Verdana; COLOR: rgb(0,102,0); FONT-SIZE: 12px; PADDING-TOP: 5px">$('#cc').combogrid('setValue', '002');
+</PRE></TD></TR>
+  <TR>
+    <TD>clear</TD>
+    <TD>none</TD>
+    <TD>清空组件值.</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-combogrid');
+		</SCRIPT>
+</BODY></HTML>

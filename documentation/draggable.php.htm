@@ -1,0 +1,174 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>draggable - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>可拖动 - Draggable</H3>
+<P>使用$.fn.draggable.defaults重载默认值。</P>
+<H4>&nbsp;使用方法（Usage Example）</H4>
+<P>创建一个拖拽元素标记。<BR></P><TEXTAREA class=html name=code-draggable>	&lt;div id="dd" class="easyui-draggable" data-options="handle:'#title'" style="width:100px;height:100px;"&gt;
+		&lt;div id="title" style="background:#ccc;"&gt;title&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>使用javascript创建一个拖拽元素。<BR></P><TEXTAREA class=html name=code-draggable>	&lt;div id="dd" style="width:100px;height:100px;"&gt;
+		&lt;div id="title" style="background:#ccc;"&gt;title&lt;/div&gt;
+	&lt;/div&gt;
+</TEXTAREA> <TEXTAREA class=JScript name=code-draggable>	$('#dd').draggable({
+		handle:'#title'
+	});
+</TEXTAREA> <BR>
+<H4>属性（Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>proxy</TD>
+    <TD>string,function</TD>
+    <TD>拖动时的替代元素，当被设置为'clone'时，将使用该元素的一个复制元素来作为替代元素。如果指定了一个函数, 它将返回一个jquery对象。 
+
+      <P><FONT style="BACKGROUND-COLOR: #fafafa" color=#006600 
+      face=Verdana>下面的例子展示了如何创建一个简单的代理对象。<BR></FONT></P><PRE>$('.dragitem').draggable({
+	proxy: function(source){
+		var p = $('&lt;div style="border:1px solid #ccc;width:80px"&gt;&lt;/div&gt;');
+		p.html($(source).html()).appendTo('body');
+		return p;
+	}
+});
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>revert</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true, 当拖动停止时元素将返回它的初始位置。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>cursor</TD>
+    <TD>string</TD>
+    <TD>拖动时的CSS指针。</TD>
+    <TD>move</TD></TR>
+  <TR>
+    <TD>deltaX</TD>
+    <TD>number</TD>
+    <TD>被拖动元素对应于当前指针的水平位置。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>deltaY</TD>
+    <TD>number</TD>
+    <TD>被拖动元素对应于当前指针的垂直位置。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>handle</TD>
+    <TD>selector</TD>
+    <TD>开始拖动的句柄。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>disabled</TD>
+    <TD>boolean</TD>
+    <TD>当设置为true时停止拖动。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>edge</TD>
+    <TD>number</TD>
+    <TD>可以在其中拖动的容器的宽度</TD>
+    <TD>0</TD></TR>
+  <TR>
+    <TD>axis</TD>
+    <TD>string</TD>
+    <TD>可用值为'v'或者'h',当设置为空时，元素可以同时在水平和垂直方法拖动。</TD>
+    <TD>null</TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>参数</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onBeforeDrag</TD>
+    <TD>e</TD>
+    <TD>在拖动之前触发，返回false将取消拖动。</TD></TR>
+  <TR>
+    <TD>onStartDrag</TD>
+    <TD>e</TD>
+    <TD>当目标对象开始被拖动时触发。</TD></TR>
+  <TR>
+    <TD>onDrag</TD>
+    <TD>e</TD>
+    <TD>在拖动过程中触发，当不能再拖动时返回false。</TD></TR>
+  <TR>
+    <TD>onStopDrag</TD>
+    <TD>e</TD>
+    <TD>当拖动停止时触发。</TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>参数</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回属性对象。</TD></TR>
+  <TR>
+    <TD>proxy</TD>
+    <TD>none</TD>
+    <TD>如果替代元素被设置，返回将被用于拖动的替代元素。</TD></TR>
+  <TR>
+    <TD>enable</TD>
+    <TD>none</TD>
+    <TD>允许拖动。</TD></TR>
+  <TR>
+    <TD>disable</TD>
+    <TD>none</TD>
+    <TD>禁止拖动。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-draggable');
+		</SCRIPT>
+</BODY></HTML>

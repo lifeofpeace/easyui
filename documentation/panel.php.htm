@@ -1,0 +1,454 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>panel - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 框架帮助你轻松建立站点。</A> 
+      </DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>面版 - Panel</H3>
+<P>使用$.fn.panel.defaults重载默认值。</P>
+<P>面版用作其他内容的容器。这是基本组件构建其他组件(如布局、标签、折叠等。它还提供了内置的可折叠、可闭,maximizable和minimizable行为和其他定制的行为。面板可以很容易地嵌入到web页面的任何位置。<BR>. 
+</P><IMG src="images/panel.png" 
+tppabs="http://jeasyui.com/documentation/images/panel.png"> 
+<H4>使用方法（Usage Example）</H4>
+<H5>创建面版</H5>
+<P>1. 使用标签创建控制面板</P>
+<P>使用标签创建控制面板十分简单，只须要对&lt;div&gt;标签引用'easyui-panel'类。</P><TEXTAREA class=html name=code-panel>	&lt;div id="p" class="easyui-panel" title="My Panel" 
+			style="width:500px;height:150px;padding:10px;background:#fafafa;"
+			data-options="iconCls:'icon-save',closable:true,
+					collapsible:true,minimizable:true,maximizable:true"&gt;
+		&lt;p&gt;panel content.&lt;/p&gt;
+		&lt;p&gt;panel content.&lt;/p&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>2. 使用脚本创建控制面板</P>
+<P>下面的代码将创建一个工具栏在右上方的控制面板。</P><TEXTAREA class=js name=code-panel>	&lt;div id="p" style="padding:10px;"&gt;
+		&lt;p&gt;panel content.&lt;/p&gt;
+		&lt;p&gt;panel content.&lt;/p&gt;
+	&lt;/div&gt;
+	
+	$('#p').panel({
+	  width:500,
+	  height:150,
+	  title: 'My Panel',
+	  tools: [{
+		iconCls:'icon-add',
+		handler:function(){alert('new')}
+	  },{
+		iconCls:'icon-save',
+		handler:function(){alert('save')}
+	  }]
+	});	
+</TEXTAREA> <BR>
+<H5>移动控制面板</H5>
+<P>调用'move'方法可以将控制面板移动到一个新的位置。</P><TEXTAREA class=js name=code-panel>	$('#p').panel('move',{
+	  left:100,
+	  top:100
+	});	
+</TEXTAREA> <BR>
+<H5>载入内容</H5>
+<P>下面的代码将使用ajax载入控制面板内容并且在载入成功时显示信息。</P><TEXTAREA class=js name=code-panel>	$('#p').panel({
+		href:'content_url.php',
+		onLoad:function(){
+			alert('loaded successfully');
+		}
+	});
+</TEXTAREA> 
+<P>&nbsp;</P>
+<H4>属性（Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>id</TD>
+    <TD>string</TD>
+    <TD>面版的id属性。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>title</TD>
+    <TD>string</TD>
+    <TD>显示在面版顶部的标题文本。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>iconCls</TD>
+    <TD>string</TD>
+    <TD>在面版标题前显示一个16x16大小图标的CSS类。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>number</TD>
+    <TD>设置面版的宽度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>height</TD>
+    <TD>number</TD>
+    <TD>设置面版的高度。</TD>
+    <TD>auto</TD></TR>
+  <TR>
+    <TD>left</TD>
+    <TD>number</TD>
+    <TD>设置面版的左边距。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>top</TD>
+    <TD>number</TD>
+    <TD>设置面版的顶边距。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>cls</TD>
+    <TD>string</TD>
+    <TD>对面版引用一个CSS类。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>headerCls</TD>
+    <TD>string</TD>
+    <TD>对面版头部引用一个CSS类。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>bodyCls</TD>
+    <TD>string</TD>
+    <TD>对面版主体引用一个CSS类。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>style</TD>
+    <TD>object</TD>
+    <TD>给面版添加一个自定义的样式。 
+      <P>Code example to change the panel border width:</P><PRE style="COLOR: #006600">&lt;div class="easyui-panel" style="width:200px;height:100px"
+		data-options="style:{borderWidth:2}"&gt;
+&lt;/div&gt;
+</PRE></TD>
+    <TD>{}</TD></TR>
+  <TR>
+    <TD>fit</TD>
+    <TD>boolean</TD>
+    <TD>设置为true时，面版的大小将铺满它所在的容器（浏览器）。<PRE style="COLOR: #006600">&lt;div style="width:200px;height:100px;padding:5px"&gt;
+	&lt;div class="easyui-panel" style="width:200px;height:100px"
+			data-options="fit:true,border:false"&gt;
+		Embedded Panel
+	&lt;/div&gt;
+&lt;/div&gt;
+</PRE></TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>border</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示控制面板边框。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>doSize</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true，在控制面板被创建时将被重置大小并且自动布局。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>noheader</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true，控制面板头部将不被创建。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>content</TD>
+    <TD>string</TD>
+    <TD>面版主体的内容。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>collapsible</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示可折叠按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>minimizable</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示最小化按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>maximizable</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示最大化按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>closable</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示关闭按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>tools</TD>
+    <TD>array,selector</TD>
+    <TD>自定义工具,可能的值:<BR>　　1)一个数组,每个元素包含iconCls和处理程序的属性。<BR>　　2)一个选择器,指示工具<BR><BR>
+      <P>The panel tools can be declared with exists &lt;div&gt; tag:</P><PRE>&lt;div class="easyui-panel" style="width:300px;height:200px"
+		title="My Panel" data-options="iconCls:'icon-ok',tools:'#tt'"&gt;
+&lt;/div&gt;
+&lt;div id="tt"&gt;
+	&lt;a href="#" class="icon-add" onclick="javascript:alert('add')"&gt;&lt;/a&gt;
+	&lt;a href="#" class="icon-edit" onclick="javascript:alert('edit')"&gt;&lt;/a&gt;
+&lt;/div&gt;
+</PRE>
+      <P>The panel tools can also be defined via array:</P><PRE>&lt;div class="easyui-panel" style="width:300px;height:200px"
+		title="My Panel" data-options="iconCls:'icon-ok',tools:[
+				{
+					iconCls:'icon-add',
+					handler:function(){alert('add')}
+				},{
+					iconCls:'icon-edit',
+					handler:function(){alert('edit')}
+				}]"&gt;
+&lt;/div&gt;
+</PRE></TD>
+    <TD>[]</TD></TR>
+  <TR>
+    <TD>collapsed</TD>
+    <TD>boolean</TD>
+    <TD>定义控制面板初始化时是否折叠。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>minimized</TD>
+    <TD>boolean</TD>
+    <TD>定义控制面板初始化时是否最小化。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>maximized</TD>
+    <TD>boolean</TD>
+    <TD>定义控制面板初始化时是否最大化。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>closed</TD>
+    <TD>boolean</TD>
+    <TD>定义控制面板初始化时是否关闭。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>href</TD>
+    <TD>string</TD>
+    <TD>一个URL加载远程数据,然后显示在面板。注意,内容将不会被加载到面板是开放和扩大。这是用来创建一个延迟加载面板:&nbsp;<PRE>&lt;div id="pp" class="easyui-panel" style="width:300px;height:200px"
+		data-options="href='get_content.php',closed:true"&gt;
+&lt;/div&gt;
+&lt;a href="#" onclick="javascript:$('#pp').panel('open')"&gt;Open&lt;/a&gt;
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>cache</TD>
+    <TD>boolean</TD>
+    <TD>如果设置为true，从超链接载入的数据将被缓存。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>loadingMessage</TD>
+    <TD>string</TD>
+    <TD>在正在载入远程数据时显示在面板中的信息。</TD>
+    <TD>Loading��?/td&gt; </TD>
+  <TR>
+    <TD>extractor</TD>
+    <TD>function</TD>
+    <TD>定义如何从ajax返回值中提取内容,返回被提取的数据。 <PRE>extractor: function(data){
+	var pattern = /&lt;body[^&gt;]*&gt;((.|[\n\r])*)&lt;\/body&gt;/im;
+	var matches = pattern.exec(data);
+	if (matches){
+		return matches[1];	// only extract body content
+	} else {
+		return data;
+	}
+}
+</PRE></TD>
+    <TD></TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onLoad</TD>
+    <TD>none</TD>
+    <TD>在远程数据被载入时触发。</TD></TR>
+  <TR>
+    <TD>onBeforeOpen</TD>
+    <TD>none</TD>
+    <TD>在控制面板被打开之前触发，返回false将停止打开。</TD></TR>
+  <TR>
+    <TD>onOpen</TD>
+    <TD>none</TD>
+    <TD>在控制面板被打开之后触发。</TD></TR>
+  <TR>
+    <TD>onBeforeClose</TD>
+    <TD>none</TD>
+    <TD>在控制面板被关闭之前触发，返回false将取消关闭。<PRE>&lt;div class="easyui-panel" style="width:300px;height:200px;"
+		title="My Panel" data-options="onBeforeClose:function(){return false}"&gt;
+	The panel cannot be closed.
+&lt;/div&gt;
+</PRE></TD></TR>
+  <TR>
+    <TD>onClose</TD>
+    <TD>none</TD>
+    <TD>在控制面板被关闭后触发。</TD></TR>
+  <TR>
+    <TD>onBeforeDestroy</TD>
+    <TD>none</TD>
+    <TD>在控制面板被注销前触发，返回false将取消注销。</TD></TR>
+  <TR>
+    <TD>onDestroy</TD>
+    <TD>none</TD>
+    <TD>在控制面板被注销后触发。</TD></TR>
+  <TR>
+    <TD>onBeforeCollapse</TD>
+    <TD>none</TD>
+    <TD>在控制面板被折叠之前触发，返回false将停止折叠。</TD></TR>
+  <TR>
+    <TD>onCollapse</TD>
+    <TD>none</TD>
+    <TD>在控制面板被折叠之后触发。</TD></TR>
+  <TR>
+    <TD>onBeforeExpand</TD>
+    <TD>none</TD>
+    <TD>在控制面板被扩展之前触发，返回false将停止扩展（这里应该是指扩展区域，宽、高等）。</TD></TR>
+  <TR>
+    <TD>onExpand</TD>
+    <TD>none</TD>
+    <TD>在控制面板被扩展之后触发。</TD></TR>
+  <TR>
+    <TD>onResize</TD>
+    <TD>width, height</TD>
+    <TD>在控制面板被缩放后触发。<BR>width： 新的控制面板宽度<BR>height：新的控制面板高度</TD></TR>
+  <TR>
+    <TD>onMove</TD>
+    <TD>left,top</TD>
+    <TD>在控制面板被移动后触发。<BR>left：新的控制面板左边距<BR>top：新的控制面板顶边距</TD></TR>
+  <TR>
+    <TD>onMaximize</TD>
+    <TD>none</TD>
+    <TD>在控制面板被最大化后触发</TD></TR>
+  <TR>
+    <TD>onRestore</TD>
+    <TD>none</TD>
+    <TD>在控制面板被重置为初始大小后触发。</TD></TR>
+  <TR>
+    <TD>onMinimize</TD>
+    <TD>none</TD>
+    <TD>在控制面板被最小化后触发。</TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回选项属性。</TD></TR>
+  <TR>
+    <TD>panel</TD>
+    <TD>none</TD>
+    <TD>返回控制面板对象。</TD></TR>
+  <TR>
+    <TD>header</TD>
+    <TD>none</TD>
+    <TD>返回控制面板头对象。</TD></TR>
+  <TR>
+    <TD>body</TD>
+    <TD>none</TD>
+    <TD>返回控制面板主体对象。</TD></TR>
+  <TR>
+    <TD>setTitle</TD>
+    <TD>title</TD>
+    <TD>设置控制面板头部的标题文本。</TD></TR>
+  <TR>
+    <TD>open</TD>
+    <TD>forceOpen</TD>
+    <TD>当参数forceOpen设置为true时，控制面板将被打开，不受onBeforeOpen回调函数的约束。</TD></TR>
+  <TR>
+    <TD>close</TD>
+    <TD>forceClose</TD>
+    <TD>当参数forceClose设置为true时, 控制面板将被打开，不受onBeforeClose回调函数的约束。</TD></TR>
+  <TR>
+    <TD>destroy</TD>
+    <TD>forceDestroy</TD>
+    <TD>当参数forceDestroy设置为true时,控制面板将被打开，不受onBeforeDestroy回调函数的约束。</TD></TR>
+  <TR>
+    <TD>refresh</TD>
+    <TD>href</TD>
+    <TD>当href属性被设置时，刷新控制面板以载入远程数据。 
+      <P>Code example:</P><PRE>// open a panel and then refresh its contents.
+$('#pp').panel('open').panel('refresh');
+// refresh contents with a new URL.
+$('#pp').panel('open').panel('refresh','new_content.php');
+</PRE></TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>options</TD>
+    <TD>这是控制面板的尺寸并且进行布局。options对象包含以下2个属性:<BR>width： 新的控制面板宽度<BR>height： 
+      新的控制面板高度<BR>left： 新的控制面板左边距<BR>top： 新的控制面板顶边距 
+      <P>示例:</P><PRE>$('#pp').panel('resize',{
+	width: 600,
+	height: 400
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>move</TD>
+    <TD>options</TD>
+    <TD>移动控制面板到一个新的位置。options对象包含以下2个属性:<BR>left： 新的控制面板左边距<BR>top： 
+    新的控制面板顶边距</TD></TR>
+  <TR>
+    <TD>maximize</TD>
+    <TD>none</TD>
+    <TD>使控制面板铺满整个容器。</TD></TR>
+  <TR>
+    <TD>minimize</TD>
+    <TD>none</TD>
+    <TD>最小化控制面板。</TD></TR>
+  <TR>
+    <TD>restore</TD>
+    <TD>none</TD>
+    <TD>使最大化的控制面板重置为其初始化时的大小和位置。</TD></TR>
+  <TR>
+    <TD>collapse</TD>
+    <TD>animate</TD>
+    <TD>折叠控制面板主体。</TD></TR>
+  <TR>
+    <TD>expand</TD>
+    <TD>animate</TD>
+    <TD>扩展控制面板主体。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-panel');
+		</SCRIPT>
+</BODY></HTML>

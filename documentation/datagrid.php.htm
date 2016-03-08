@@ -1,0 +1,925 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>datagrid - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3 id=overview>数据表格 - DataGrid</H3>
+<DIV 
+style="BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 200px; PADDING-RIGHT: 10px; BACKGROUND: #fbfbfb; FLOAT: right; HEIGHT: 220px; MARGIN-LEFT: 20px; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid; PADDING-TOP: 0px">
+<H3>内容</H3>
+<UL>
+  <LI><A href="#overview">概况</A>&nbsp;
+  <LI><A href="#usage">使用方法</A>&nbsp;
+  <LI><A href="#dg-properties">数据表格属性</A>&nbsp;
+  <LI><A href="#cc-properties">数据列属性</A>&nbsp;
+  <LI><A href="#editor">编辑</A>&nbsp;
+  <LI><A href="#view">数据视图</A>&nbsp;
+  <LI><A href="#events">事件</A>&nbsp;
+  <LI><A href="#methods">方法</A>&nbsp;</LI></UL></DIV>
+<P>继承$.fn.panel.defaults，使用$.fn.datagrid.defaults重载默认值。.</P>
+<P><SPAN 
+class=alt-edited>数据表格显示</SPAN><SPAN>的数据</SPAN><SPAN>以表格的形式</SPAN><SPAN>，</SPAN><SPAN>并</SPAN><SPAN>提供了丰富的</SPAN><SPAN>选择</SPAN><SPAN>，排序，分组</SPAN><SPAN>和编辑</SPAN><SPAN>数据</SPAN><SPAN>的</SPAN><SPAN>支持</SPAN><SPAN>。</SPAN><SPAN 
+class=alt-edited>这个数据表格</SPAN><SPAN>被设计</SPAN><SPAN>以缩短开发时间</SPAN><SPAN>，并要求</SPAN><SPAN>开发商</SPAN><SPAN>没有具体的</SPAN><SPAN>知识</SPAN><SPAN>。</SPAN><SPAN>它</SPAN><SPAN>是</SPAN><SPAN>轻量级的</SPAN><SPAN>，功能丰富的</SPAN><SPAN>。</SPAN><SPAN>单元格合并</SPAN><SPAN>，</SPAN><SPAN>多</SPAN><SPAN>列标题</SPAN><SPAN>，</SPAN><SPAN>冻结列和</SPAN><SPAN>页脚是</SPAN><SPAN>其功能</SPAN><SPAN>只是一小部分</SPAN><SPAN>。</SPAN> 
+</P><IMG src="images/datagrid.png" 
+tppabs="http://jeasyui.com/documentation/images/datagrid.png"> 
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="panel.php.htm">布局 - panel </A>
+  <LI><A href="resizable.php.htm">缩放 - resizable </A>
+  <LI><A href="linkbutton.php.htm">链接按钮 -&nbsp;&nbsp; linkbutton</A> 
+  <LI><A href="pagination.php.htm">分页 - pagination </A></LI></UL>
+<H4 id=usage>使用方法（Usage Example）</H4>
+<P><SPAN>从<SPAN>现有的表单</SPAN><SPAN>元素</SPAN>创建</SPAN><SPAN>数据表格</SPAN><SPAN>，</SPAN><SPAN>定义</SPAN><SPAN>在html中</SPAN><SPAN>的</SPAN><SPAN>行，列</SPAN><SPAN>和数据</SPAN><SPAN>。</SPAN></P><TEXTAREA class=html name=code-datagrid>	&lt;table class="easyui-datagrid"&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th data-options="field:'code'"&gt;Code&lt;/th&gt;
+				&lt;th data-options="field:'name'"&gt;Name&lt;/th&gt;
+				&lt;th data-options="field:'price'"&gt;Price&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&gt;001&lt;/td&gt;&lt;td&gt;name1&lt;/td&gt;&lt;td&gt;2323&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;002&lt;/td&gt;&lt;td&gt;name2&lt;/td&gt;&lt;td&gt;4612&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+</TEXTAREA> 
+<P><SPAN>通过</SPAN><SPAN>&lt;TABLE&gt;</SPAN><SPAN>标记</SPAN><SPAN>创建</SPAN><SPAN>的DataGrid</SPAN><SPAN>。</SPAN><SPAN>嵌套的</SPAN><SPAN>&lt;TH&gt;</SPAN><SPAN>标签</SPAN><SPAN>定义</SPAN><SPAN>的列</SPAN><SPAN>的</SPAN><SPAN>表。</SPAN> 
+</P><TEXTAREA class=html name=code-datagrid>	&lt;table class="easyui-datagrid" style="width:400px;height:250px"
+			data-options="url:'datagrid_data.json',fitColumns:true,singleSelect:true"&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th data-options="field:'code',width:100"&gt;Code&lt;/th&gt;
+				&lt;th data-options="field:'name',width:100"&gt;Name&lt;/th&gt;
+				&lt;th data-options="field:'price',width:100,align:'right'"&gt;Price&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+	&lt;/table&gt;
+</TEXTAREA> 
+<P><SPAN>使用JavaScript</SPAN><SPAN>创建</SPAN><SPAN 
+class=alt-edited>数据表格。</SPAN></P><TEXTAREA class=html name=code-datagrid>	&lt;table id="dg"&gt;&lt;/table&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-datagrid>	$('#dg').datagrid({
+		url:'datagrid_data.json',
+		columns:[[
+			{field:'code',title:'Code',width:100},
+			{field:'name',title:'Name',width:100},
+			{field:'price',title:'Price',width:100,align:'right'}
+		]]
+	});
+</TEXTAREA> 
+<P><SPAN>查询</SPAN><SPAN>数据填充数据表格。</SPAN></P><TEXTAREA class=js name=code-datagrid>	$('#dg').datagrid('load', {
+		name: 'easyui',
+		address: 'ho'
+	});
+</TEXTAREA> 
+<P><SPAN>数据更改与服务器交互</SPAN><SPAN>，刷新当</SPAN><SPAN>前数据。</SPAN></P><TEXTAREA class=js name=code-datagrid>	$('#dg').datagrid('reload');	// reload the current page data
+</TEXTAREA> <BR>
+<H4 id=dg-properties>数据表格属性（DataGrid Properties）</H4>
+<P>属性继承控制面板，以下是数据表格独有的属性。</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>columns</TD>
+    <TD>array</TD>
+    <TD>数据表格列配置对象，查看列属性以获取更多细节。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>frozenColumns</TD>
+    <TD>array</TD>
+    <TD>跟列属性一样，但是这些列固定在左边，不会滚动。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>fitColumns</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将自动使列适应表格宽度以防止出现水平滚动。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>autoRowHeight</TD>
+    <TD>boolean</TD>
+    <TD><SPAN>定义</SPAN><SPAN>设置行的高度</SPAN><SPAN>，</SPAN><SPAN>根据</SPAN><SPAN>该行</SPAN><SPAN>的内容</SPAN><SPAN>。</SPAN><SPAN>设置为</SPAN><SPAN>false可以提高</SPAN><SPAN>负载性能</SPAN><SPAN>。</SPAN></TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>toolbar</TD>
+    <TD>array,selector</TD>
+    <TD><SPAN>数据表格</SPAN><SPAN>顶部<SPAN>面板</SPAN>的工具栏</SPAN><SPAN>。</SPAN><SPAN>可能的值：</SPAN><BR><SPAN>1）</SPAN><SPAN>数组，每个</SPAN><SPAN>工具选项</SPAN><SPAN 
+      class=alt-edited>和链接按钮</SPAN><SPAN>相同</SPAN><SPAN>。</SPAN><BR><SPAN>2）</SPAN><SPAN>选择</SPAN><SPAN>显示</SPAN><SPAN>的</SPAN><SPAN>工具栏</SPAN><SPAN>。</SPAN><BR><SPAN>在</SPAN><SPAN>一个&lt;div&gt;</SPAN><SPAN>的</SPAN><SPAN>标签</SPAN><SPAN>定义</SPAN><SPAN>工具栏</SPAN>: 
+
+      <P><PRE>$('#dg').datagrid({
+	toolbar: '#tb'
+});
+&lt;div id="tb"&gt;
+&lt;a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/a&gt;
+&lt;a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/a&gt;
+&lt;/div&gt;
+</PRE>
+      <P><SPAN>通过</SPAN><SPAN 
+      class=alt-edited>数组</SPAN><SPAN>定义</SPAN><SPAN>工具栏</SPAN>:</P><PRE>$('#dg').datagrid({
+	toolbar: [{
+		iconCls: 'icon-edit',
+		handler: function(){alert('edit')}
+	},'-',{
+		iconCls: 'icon-help',
+		handler: function(){alert('help')}
+	}]
+});
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>striped</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将交替显示行背景。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>method</TD>
+    <TD>string</TD>
+    <TD>请求远程数据的方法类型。</TD>
+    <TD>post</TD></TR>
+  <TR>
+    <TD>nowrap</TD>
+    <TD>boolean</TD>
+    <TD>设置为true，当数据长度超出列宽时将会自动截取。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>idField</TD>
+    <TD>string</TD>
+    <TD>表明该列是一个唯一列。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>url</TD>
+    <TD>string</TD>
+    <TD>一个用以从远程站点请求数据的超链接地址。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>loadMsg</TD>
+    <TD>string</TD>
+    <TD>当从远程站点载入数据时，显示的一条快捷信息。</TD>
+    <TD>Processing, please wait …</TD></TR>
+  <TR>
+    <TD>pagination</TD>
+    <TD>boolean</TD>
+    <TD>设置true将在数据表格底部显示分页工具栏。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>rownumbers</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将显示行数。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>singleSelect</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将只允许选择一行。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>checkOnSelect</TD>
+    <TD>boolean</TD>
+    <TD><SPAN>如果为true，</SPAN><SPAN>该复选框被</SPAN><SPAN>选中/取消选中</SPAN><SPAN>，当用户点击</SPAN><SPAN>某一行上</SPAN><SPAN>。</SPAN><SPAN>如果为false，</SPAN><SPAN>该复选框</SPAN><SPAN>仅</SPAN><SPAN>检查</SPAN><SPAN>/取消选中</SPAN><SPAN>，当用户点击</SPAN><SPAN>完全</SPAN><SPAN>的复选框</SPAN><SPAN>。</SPAN><BR><SPAN>此属性是</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>selectOnCheck</TD>
+    <TD>boolean</TD>
+    <TD><SPAN>如果设置为true</SPAN><SPAN>，</SPAN><SPAN>单击</SPAN><SPAN>一个复选框，</SPAN><SPAN>将始终选择</SPAN><SPAN>行</SPAN><SPAN>。</SPAN><SPAN>如果为false，</SPAN><SPAN>不会</SPAN><SPAN>选择行</SPAN><SPAN>选中该复选框</SPAN><SPAN>。</SPAN><BR><SPAN>此属性是</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>pagePosition</TD>
+    <TD>string</TD>
+    <TD>&nbsp;<SPAN>定义</SPAN><SPAN>的</SPAN><SPAN>分页</SPAN><SPAN>栏</SPAN><SPAN>的</SPAN><SPAN>位置</SPAN><SPAN>。</SPAN><SPAN>可用的值有</SPAN><SPAN> 
+      'top','bottom','both'</SPAN><SPAN>。</SPAN><BR><SPAN>此属性是</SPAN><SPAN>可</SPAN><SPAN>自</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></TD>
+    <TD>bottom</TD></TR>
+  <TR>
+    <TD>pageNumber</TD>
+    <TD>number</TD>
+    <TD>当设置分页属性时，初始化分页码。</TD>
+    <TD>1</TD></TR>
+  <TR>
+    <TD>pageSize</TD>
+    <TD>number</TD>
+    <TD>当设置分页属性时，初始化每页记录数。</TD>
+    <TD>10</TD></TR>
+  <TR>
+    <TD>pageList</TD>
+    <TD>array</TD>
+    <TD>当设置分页属性时，初始化每页记录数列表。</TD>
+    <TD>[10,20,30,40,50]</TD></TR>
+  <TR>
+    <TD>queryParams</TD>
+    <TD>object</TD>
+    <TD>当请求远程数据时，发送的额外参数。
+      <P>示例:</P><PRE>$('#dg').datagrid({
+	queryParams: {
+		name: 'easyui',
+		subject: 'datagrid'
+	}
+});
+</PRE></TD>
+    <TD>{}</TD></TR>
+  <TR>
+    <TD>sortName</TD>
+    <TD>string</TD>
+    <TD>当数据表格初始化时以哪一列来排序。</TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>sortOrder</TD>
+    <TD>string</TD>
+    <TD>定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。</TD>
+    <TD>asc</TD></TR>
+  <TR>
+    <TD>remoteSort</TD>
+    <TD>boolean</TD>
+    <TD>定义是否通过远程服务器对数据排序。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>showFooter</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示行底（如果是做统计表格，这里可以显示总计等）。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>rowStyler</TD>
+    <TD>function</TD>
+    <TD>返回样式，如：'background:red'，function有2个参数：<BR>index：行索引，从0开始.<BR>row：对应于该行记录的对象。
+      <P>示例:</P><PRE>$('#dg').datagrid({
+	rowStyler: function(index,row){
+		if (row.listprice&gt;80){
+			return 'background-color:#6293BB;color:#fff;';
+		}
+	}
+});
+</PRE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>loader</TD>
+    <TD>function</TD>
+    <TD><SPAN>定义如何</SPAN><SPAN>从远程服务器</SPAN><SPAN>加载</SPAN><SPAN>数据</SPAN><SPAN>。</SPAN><SPAN>返回false</SPAN><SPAN>可以</SPAN><SPAN>取消该操作</SPAN><SPAN>。</SPAN><SPAN>这个函数接受</SPAN><SPAN>以下参数：</SPAN><BR><SPAN>param: 
+      </SPAN><SPAN></SPAN><SPAN>参数对象</SPAN><SPAN>传递</SPAN><SPAN>到远程服务器。</SPAN><BR><SPAN>success(data): 
+      </SPAN><SPAN>回调函数</SPAN><SPAN>将被调用<SPAN>成功</SPAN></SPAN><SPAN>检索的数据</SPAN><SPAN>。</SPAN><BR><SPAN>error():</SPAN><SPAN>回调函数</SPAN><SPAN>将被调用</SPAN><SPAN>失败时</SPAN><SPAN>检索数据</SPAN><SPAN>。</SPAN></TD>
+    <TD>json loader</TD></TR>
+  <TR>
+    <TD>loadFilter</TD>
+    <TD>function</TD>
+    <TD><SPAN>返回过滤</SPAN><SPAN>的数据</SPAN><SPAN>显示</SPAN><SPAN>。</SPAN><SPAN>该函数</SPAN><SPAN>需要</SPAN><SPAN>一个参数</SPAN><SPAN 
+      class=atn>'data'</SPAN><SPAN>，</SPAN><SPAN>表示</SPAN><SPAN>原始数据</SPAN><SPAN>。</SPAN><SPAN>您可以更改</SPAN><SPAN>源数据的</SPAN><SPAN>标准数据</SPAN><SPAN>格式</SPAN><SPAN>。</SPAN><SPAN>此函数必须返回</SPAN><SPAN>标准数据</SPAN><SPAN>对象中包含</SPAN><SPAN 
+      class=atn>的“total”</SPAN><SPAN>和</SPAN><SPAN 
+      class=atn>“rows”</SPAN><SPAN>的属性</SPAN><SPAN>。</SPAN> 
+      <P>示例:</P><PRE>// removing 'd' object from asp.net web service json output
+$('#dg').datagrid({
+	loadFilter: function(data){
+		if (data.d){
+			return data.d;
+		} else {
+			return data;
+		}
+	}
+});
+</PRE></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>editors</TD>
+    <TD>object</TD>
+    <TD>定义当编辑一行时的编辑模式。</TD>
+    <TD>predefined editors</TD></TR>
+  <TR>
+    <TD>view</TD>
+    <TD>object</TD>
+    <TD>定义数据表格的视图。</TD>
+    <TD>default view</TD></TR></TBODY></TABLE><BR>
+<H4 id=cc-properties>列属性（Column Properties）</H4>
+<P>数据表格的列是一个对象数组，即这个对象中的元素也是一个数组（js中数组是对象）。 对象数组中的每一个元素都是可配置的对象，每个可配置对象定义一个列。 
+<P>
+<P>示例:</P><TEXTAREA class=js name=code-datagrid>	columns:[[
+		{field:'itemid',title:'Item ID',rowspan:2,width:80,sortable:true},
+		{field:'productid',title:'Product ID',rowspan:2,width:80,sortable:true},
+		{title:'Item Details',colspan:4}
+	],[
+		{field:'listprice',title:'List Price',width:80,align:'right',sortable:true},
+		{field:'unitcost',title:'Unit Cost',width:80,align:'right',sortable:true},
+		{field:'attr1',title:'Attribute',width:100},
+		{field:'status',title:'Status',width:60}
+	]]
+</TEXTAREA> 
+<P></P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>title</TD>
+    <TD>string</TD>
+    <TD>列标题。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>field</TD>
+    <TD>string</TD>
+    <TD>列字段。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>width</TD>
+    <TD>number</TD>
+    <TD>列宽。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>rowspan</TD>
+    <TD>number</TD>
+    <TD>表明一个单元格跨几行。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>colspan</TD>
+    <TD>number</TD>
+    <TD>表明一个单元格跨几列。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>align</TD>
+    <TD>string</TD>
+    <TD>表明如何对其列数据，可选值：'left'，'right'，'center'。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>sortable</TD>
+    <TD>boolean</TD>
+    <TD>设置为true允许对该列排序。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>resizable</TD>
+    <TD>boolean</TD>
+    <TD>设置为true允许该列被缩放。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>hidden</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将隐藏列。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>checkbox</TD>
+    <TD>boolean</TD>
+    <TD>设置为true将显示复选框。</TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>formatter</TD>
+    <TD>function</TD>
+    <TD>格式化单元格函数，有3个参数：<BR>value：字段的值。<BR>rowData：行数据。<BR>rowIndex：行索引。
+      <P>示例:</P><PRE>$('#dg').datagrid({
+	columns:[[
+		{field:'userId',title:'User', width:80,
+			formatter: function(value,row,index){
+				if (row.user){
+					return row.user.name;
+				} else {
+					return value;
+				}
+			}
+		}
+	]]
+});
+</PRE></TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>styler</TD>
+    <TD>function</TD>
+    <TD>单元格样式函数，返回样式字符串装饰表格如'background:red'，function有3个参数：<BR>value：字段值。<BR>rowData：行数据。<BR>rowIndex：行索引。
+      <P>示例:</P><PRE>$('#dg').datagrid({
+	columns:[[
+		{field:'listprice',title:'List Price', width:80, align:'right',
+			styler: function(value,row,index){
+				if (value &lt; 20){
+					return 'background-color:#ffee00;color:red;';
+				}
+			}
+		}
+	]]
+});
+</PRE></TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>sorter</TD>
+    <TD>function</TD>
+    <TD>T自定义字段排序函数，有2个参数：<BR>a：该列的第一个值。<BR>b：该列的第二个值。 
+      <P>示例:</P><PRE>$('#dg').datagrid({
+	remoteSort: false,
+	columns: [[
+		{field:'date',title:'Date',width:80,sortable:true,align:'center',  
+			sorter:function(a,b){  
+				a = a.split('/');  
+				b = b.split('/');  
+				if (a[2] == b[2]){  
+					if (a[0] == b[0]){  
+						return (a[1]&gt;b[1]?1:-1);  
+					} else {  
+						return (a[0]&gt;b[0]?1:-1);  
+					}  
+				} else {  
+					return (a[2]&gt;b[2]?1:-1);  
+				}  
+			}  
+		}
+	]]
+});
+</PRE></TD>
+    <TD>undefined</TD></TR>
+  <TR>
+    <TD>editor</TD>
+    <TD>string,object</TD>
+    <TD>表明编辑类型。如果属性是字符串类型表示编辑类型，如果是对象则包含2个参数：<BR>type：字符串，编辑类型，可选值：text，textarea，checkbox，numberbox，validatebox，datebox，combobox，combotree。<BR>options：对象，对象于编辑类型的编辑器属性。</TD>
+    <TD>undefined</TD></TR></TBODY></TABLE><BR>
+<H4 id=editor>编辑器（Editor）</H4>
+<P>使用$.fn.datagrid.defaults.editors重载默认值。 
+<P>
+<P>每个编辑器都有以下方法:</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>init</TD>
+    <TD>container, options</TD>
+    <TD>初始化编辑器并返回目标对象。</TD></TR>
+  <TR>
+    <TD>destroy</TD>
+    <TD>target</TD>
+    <TD>注销编辑器。</TD></TR>
+  <TR>
+    <TD>getValue</TD>
+    <TD>target</TD>
+    <TD>获取编辑框的值。</TD></TR>
+  <TR>
+    <TD>setValue</TD>
+    <TD>target , value</TD>
+    <TD>设置编辑框的值。</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>target , width</TD>
+    <TD>调整编辑器</TD></TR></TBODY></TABLE>
+<P>如下代码将定义一个文本编辑器:</P><TEXTAREA class=js name=code-datagrid>	$.extend($.fn.datagrid.defaults.editors, {
+		text: {
+			init: function(container, options){
+				var input = $('&lt;input type="text" class="datagrid-editable-input"&gt;').appendTo(container);
+				return input;
+			},
+			getValue: function(target){
+				return $(target).val();
+			},
+			setValue: function(target, value){
+				$(target).val(value);
+			},
+			resize: function(target, width){
+				var input = $(target);
+				if ($.boxModel == true){
+					input.width(width - (input.outerWidth() - input.width()));
+				} else {
+					input.width(width);
+				}
+			}
+		}
+	});
+</TEXTAREA> <BR>
+<H4 id=view>数据表格视图（DataGrid View）</H4>
+<P>使用$.fn.datagrid.defaults.view重载默认值。</P>
+<P>视图是一个告诉数据表格如何呈现行记录的对象，对象必须定义以下方法:</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>render</TD>
+    <TD>target, container, frozen</TD>
+    <TD>当数据载入时调用。<BR>target: DOM对象，数据网格对象。<BR>container: 行记录容器。<BR>frozen: 
+      是否呈现固定容器。</TD></TR>
+  <TR>
+    <TD>renderFooter</TD>
+    <TD>target, container, frozen</TD>
+    <TD>这是一个可选函数用以展现行底。</TD></TR>
+  <TR>
+    <TD>renderRow</TD>
+    <TD>target, fields, frozen, rowIndex, rowData</TD>
+    <TD>这是一个可选函数，它可以被render函数调用。</TD></TR>
+  <TR>
+    <TD>refreshRow</TD>
+    <TD>target, rowIndex</TD>
+    <TD>定义如何刷新指定的行。</TD></TR>
+  <TR>
+    <TD>onBeforeRender</TD>
+    <TD>target, rows</TD>
+    <TD>在视图被呈现之前触发。</TD></TR>
+  <TR>
+    <TD>onAfterRender</TD>
+    <TD>target</TD>
+    <TD>在视图被程序之后触发。</TD></TR></TBODY></TABLE><BR>
+<H4 id=events>事件（Events）</H4>
+<P>事件继承控制面板，以下是数据表格独有的属性。</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onLoadSuccess</TD>
+    <TD>data</TD>
+    <TD>当数据载入成功时触发。</TD></TR>
+  <TR>
+    <TD>onLoadError</TD>
+    <TD>none</TD>
+    <TD>当载入远程数据发生错误时触发。</TD></TR>
+  <TR>
+    <TD>onBeforeLoad</TD>
+    <TD>param</TD>
+    <TD>在请求载入数据之前触发，如果返回false将取消载入。</TD></TR>
+  <TR>
+    <TD>onClickRow</TD>
+    <TD>rowIndex, rowData</TD>
+    <TD>当用户点击行时触发，参数如下：<BR>rowIndex：被点击的行索引，从0开始。<BR>rowData：对应于被点击的行的记录。</TD></TR>
+  <TR>
+    <TD>onDblClickRow</TD>
+    <TD>rowIndex, rowData</TD>
+    <TD>当用户双击一行时触发，参数如下：<BR>rowIndex：被点击的行索引，从0开始。<BR>rowData：对应于被点击的行的记录。</TD></TR>
+  <TR>
+    <TD>onClickCell</TD>
+    <TD>rowIndex, field, value</TD>
+    <TD>当用户点击单元格时触发。</TD></TR>
+  <TR>
+    <TD>onDblClickCell</TD>
+    <TD>rowIndex, field, value</TD>
+    <TD>当用户双击单元格时触发。 
+      <P>示例:</P><PRE>// when double click a cell, begin editing and make the editor get focus
+$('#dg').datagrid({
+	onDblClickCell: function(index,field,value){
+		$(this).datagrid('beginEdit', index);
+		var ed = $(this).datagrid('getEditor', {index:index,field:field});
+		$(ed.target).focus();
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>onSortColumn</TD>
+    <TD>sort, order</TD>
+    <TD>当用户对列排序时触发，参数如下：<BR>sort：排序字段名称。<BR>order：排序顺序。</TD></TR>
+  <TR>
+    <TD>onResizeColumn</TD>
+    <TD>field, width</TD>
+    <TD>当用户调整列宽时触发。</TD></TR>
+  <TR>
+    <TD>onSelect</TD>
+    <TD>rowIndex, rowData</TD>
+    <TD>当用户选择一行是触发，参数如下：<BR>rowIndex：被选择的行索引，从0开始。<BR>rowData：对应于被选择行的记录。</TD></TR>
+  <TR>
+    <TD>onUnselect</TD>
+    <TD>rowIndex, rowData</TD>
+    <TD>当用户取消选择一行时触发，参数如下：<BR>rowIndex：被取消选择的行索引，从0开始。<BR>rowData：对应于被取消选择行的记录。</TD></TR>
+  <TR>
+    <TD>onSelectAll</TD>
+    <TD>rows</TD>
+    <TD>当用户选择所有行时触发。</TD></TR>
+  <TR>
+    <TD>onUnselectAll</TD>
+    <TD>rows</TD>
+    <TD>当用户取消选择所有行时触发。</TD></TR>
+  <TR>
+    <TD>onCheck</TD>
+    <TD>rowIndex,rowData</TD>
+    <TD><SPAN>当用户<SPAN>选中</SPAN><SPAN><SPAN>行时</SPAN></SPAN></SPAN><SPAN><SPAN>触发</SPAN></SPAN><SPAN>，</SPAN><SPAN>参数包含</SPAN><SPAN>：</SPAN><BR><SPAN>rowIndex</SPAN><SPAN>：</SPAN><SPAN>选中</SPAN><SPAN>行的索引</SPAN><SPAN>，</SPAN><SPAN>从0开始</SPAN><BR><SPAN>rowData</SPAN><SPAN>：</SPAN><SPAN>选中</SPAN><SPAN>的</SPAN><SPAN>行</SPAN><SPAN>对应的记录</SPAN><BR><SPAN><SPAN>此属性是</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>onUncheck</TD>
+    <TD>rowIndex,rowData</TD>
+    <TD><SPAN>当</SPAN><SPAN>用户</SPAN><SPAN>取消选中</SPAN><SPAN>行时触发</SPAN><SPAN>，</SPAN><SPAN>参数包含</SPAN><SPAN>：</SPAN><BR><SPAN>rowIndex</SPAN><SPAN>：</SPAN><SPAN>取消选中</SPAN><SPAN>行的索引</SPAN><SPAN>，</SPAN><SPAN>从0开始</SPAN><BR><SPAN>rowData</SPAN><SPAN>：</SPAN><SPAN>未经检查的</SPAN><SPAN>行</SPAN><SPAN>对应的记录</SPAN><BR><SPAN><SPAN>此属性是</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>onCheckAll</TD>
+    <TD>rows</TD>
+    <TD><SPAN>当用户</SPAN><SPAN>检查所有行时<SPAN>触发</SPAN></SPAN><SPAN>。</SPAN><SPAN><SPAN><SPAN>此属性是</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>onUncheckAll</TD>
+    <TD>rows</TD>
+    <TD><SPAN>用户</SPAN><SPAN>取消所有</SPAN><SPAN>行<SPAN>时<SPAN>触发</SPAN></SPAN></SPAN><SPAN>。</SPAN><SPAN><SPAN><SPAN>此属性是</SPAN><SPAN>1.3版本</SPAN><SPAN>。</SPAN></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>onBeforeEdit</TD>
+    <TD>rowIndex, rowData</TD>
+    <TD>当用户开始编辑一行时触发，参数如下：<BR>rowIndex：正在编辑的行索引，从0开始。<BR>rowData：对应于正在编辑的行的记录。</TD></TR>
+  <TR>
+    <TD>onAfterEdit</TD>
+    <TD>rowIndex, rowData, changes</TD>
+    <TD>当用户编辑完成时触发，参数如下：<BR>rowIndex：正在编辑的行索引，从0开始。<BR>rowData：对应于正在编辑的行的记录。<BR>changes：被改变的字段内容，对应方式为字段：值。</TD></TR>
+  <TR>
+    <TD>onCancelEdit</TD>
+    <TD>rowIndex, rowData</TD>
+    <TD>当用户取消编辑行时触发，参数如下：<BR>rowIndex：正在编辑的行索引，从0开始。<BR>rowData：对应于正在编辑的行的记录。</TD></TR>
+  <TR>
+    <TD>onHeaderContextMenu</TD>
+    <TD>e, field</TD>
+    <TD>当数据表格的列标题被鼠标右键单击时触发。</TD></TR>
+  <TR>
+    <TD>onRowContextMenu</TD>
+    <TD>e, rowIndex, rowData</TD>
+    <TD>当一行被鼠标右键单击时触发。</TD></TR></TBODY></TABLE><BR>
+<H4 id=methods>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回属性对象。</TD></TR>
+  <TR>
+    <TD>getPager</TD>
+    <TD>none</TD>
+    <TD>返回页面对象。</TD></TR>
+  <TR>
+    <TD>getPanel</TD>
+    <TD>none</TD>
+    <TD>返回控制面板对象。</TD></TR>
+  <TR>
+    <TD>getColumnFields</TD>
+    <TD>frozen</TD>
+    <TD>返回列字段，如果设置了frozen属性为true，将返回固定列的字段名。<BR>示例:<BR><PRE style="COLOR: #006600">var opts = $('#dg').datagrid('getColumnFields');	// get unfrozen columns
+var opts = $('#dg').datagrid('getColumnFields', true); // get frozen columns
+</PRE></TD></TR>
+  <TR>
+    <TD>getColumnOption</TD>
+    <TD>field</TD>
+    <TD>返回特定的列属性。</TD></TR>
+  <TR>
+    <TD>resize</TD>
+    <TD>param</TD>
+    <TD>缩放和布局。</TD></TR>
+  <TR>
+    <TD>load</TD>
+    <TD>param</TD>
+    <TD>载入并显示第一页的记录，如果传递了'param'参数，它将会覆盖查询参数属性的值<SPAN>。</SPAN><SPAN>通过</SPAN><SPAN>传递一些</SPAN><SPAN>参数</SPAN><SPAN>，</SPAN><SPAN>通常</SPAN><SPAN>做一个查询</SPAN><SPAN>，这个方法</SPAN><SPAN>可以被称为</SPAN><SPAN>从服务器</SPAN><SPAN>加载新数据</SPAN><SPAN>。</SPAN><PRE style="COLOR: #006600">$('#dg').datagrid('load',{
+	code: '01',
+	name: 'name01'
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>reload</TD>
+    <TD>param</TD>
+    <TD>重载记录，跟'load'方法一样但是重载的是当前页的记录而非第一页。</TD></TR>
+  <TR>
+    <TD>reloadFooter</TD>
+    <TD>footer</TD>
+    <TD>重载行底记录。 示例: <PRE style="COLOR: #006600">// update footer row values and then refresh
+var rows = $('#dg').datagrid('getFooterRows');
+rows[0]['name'] = 'new name';
+rows[0]['salary'] = 60000;
+$('#dg').datagrid('reloadFooter');
+
+// update footer rows with new data
+$('#dg').datagrid('reloadFooter',[
+	{name: 'name1', salary: 60000},
+	{name: 'name2', salary: 65000}
+]);
+</PRE></TD></TR>
+  <TR>
+    <TD>loading</TD>
+    <TD>none</TD>
+    <TD>显示载入状态。</TD></TR>
+  <TR>
+    <TD>loaded</TD>
+    <TD>none</TD>
+    <TD>隐藏载入状态。</TD></TR>
+  <TR>
+    <TD>fitColumns</TD>
+    <TD>none</TD>
+    <TD>让列宽自动适应数据表格的宽度。</TD></TR>
+  <TR>
+    <TD>fixColumnSize</TD>
+    <TD>field</TD>
+    <TD>固定列尺寸。<SPAN>如果</SPAN><SPAN class=atn>“field' 
+      </SPAN><SPAN>参数</SPAN><SPAN>未指定，<SPAN>将</SPAN></SPAN><SPAN>所有列</SPAN><SPAN>的</SPAN><SPAN>大小</SPAN><SPAN>固定</SPAN>。 
+
+      <P>示例:</P><PRE>$('#dg').datagrid('fixColumnSize', 'name');  // fix the 'name' column size
+$('#dg').datagrid('fixColumnSize');  // fix all columns size
+</PRE></TD></TR>
+  <TR>
+    <TD>fixRowHeight</TD>
+    <TD>index</TD>
+    <TD>固定特定列的高度。<SPAN>如果</SPAN><SPAN class=atn>“index' 
+      </SPAN><SPAN>参数</SPAN><SPAN>未指定，<SPAN>将</SPAN></SPAN><SPAN>所有列</SPAN><SPAN>的</SPAN><SPAN>高度</SPAN><SPAN>固定</SPAN>。</TD></TR>
+  <TR>
+    <TD>autoSizeColumn</TD>
+    <TD>field</TD>
+    <TD><SPAN>自动调整</SPAN><SPAN>列宽</SPAN><SPAN>，</SPAN><SPAN>以适应内容</SPAN><SPAN>。</SPAN><SPAN>此</SPAN><SPAN>方法是</SPAN><SPAN>1.3版本特有的</SPAN><SPAN>。</SPAN></TD></TR>
+  <TR>
+    <TD>loadData</TD>
+    <TD>data</TD>
+    <TD>载入本地数据，旧记录将被移除。</TD></TR>
+  <TR>
+    <TD>getData</TD>
+    <TD>none</TD>
+    <TD>返回已载入数据。</TD></TR>
+  <TR>
+    <TD>getRows</TD>
+    <TD>none</TD>
+    <TD>返回当前页的记录。</TD></TR>
+  <TR>
+    <TD>getFooterRows</TD>
+    <TD>none</TD>
+    <TD>返回行底记录。</TD></TR>
+  <TR>
+    <TD>getRowIndex</TD>
+    <TD>row</TD>
+    <TD>返回指定行的索引，row参数可以是行记录或者是一个id字段的值。</TD></TR>
+  <TR>
+    <TD>getChecked</TD>
+    <TD>none</TD>
+    <TD><SPAN>返回所有行</SPAN><SPAN>的</SPAN><SPAN>复选框已被</SPAN><SPAN>选中</SPAN><SPAN>。</SPAN><SPAN><SPAN>此</SPAN><SPAN>方法是</SPAN><SPAN>1.3版本特有的</SPAN><SPAN>。</SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>getSelected</TD>
+    <TD>none</TD>
+    <TD>返回第一个被选择的行记录或null。</TD></TR>
+  <TR>
+    <TD>getSelections</TD>
+    <TD>none</TD>
+    <TD>返回所有被选择的行，当没有记录被选择时，将返回一个空数组。</TD></TR>
+  <TR>
+    <TD>clearSelections</TD>
+    <TD>none</TD>
+    <TD>取消所有的已选择项。</TD></TR>
+  <TR>
+    <TD>selectAll</TD>
+    <TD>none</TD>
+    <TD><SPAN>选择</SPAN><SPAN>所有</SPAN><SPAN>页面的行</SPAN><SPAN>。</SPAN></TD></TR>
+  <TR>
+    <TD>unselectAll</TD>
+    <TD>none</TD>
+    <TD><SPAN>取消选择</SPAN><SPAN>所有</SPAN><SPAN>页面的行</SPAN><SPAN>。</SPAN></TD></TR>
+  <TR>
+    <TD>selectRow</TD>
+    <TD>index</TD>
+    <TD>选择一行，行索引从0开始。</TD></TR>
+  <TR>
+    <TD>selectRecord</TD>
+    <TD>idValue</TD>
+    <TD>通过传递id参数来选择一行。</TD></TR>
+  <TR>
+    <TD>unselectRow</TD>
+    <TD>index</TD>
+    <TD>取消选择一行。</TD></TR>
+  <TR>
+    <TD>checkAll</TD>
+    <TD>none</TD>
+    <TD><SPAN>检查所有</SPAN><SPAN>页面的行</SPAN><SPAN>。</SPAN><SPAN><SPAN><SPAN>此</SPAN><SPAN>方法是</SPAN><SPAN>1.3版本特有的</SPAN><SPAN>。</SPAN></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>uncheckAll</TD>
+    <TD>none</TD>
+    <TD><SPAN>取消<SPAN>检查</SPAN>所有</SPAN><SPAN>当前</SPAN><SPAN>页面的行</SPAN><SPAN>。</SPAN><SPAN><SPAN><SPAN>此</SPAN><SPAN>方法是</SPAN><SPAN>1.3版本特有的</SPAN><SPAN>。</SPAN></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>checkRow</TD>
+    <TD>index</TD>
+    <TD><SPAN>检查</SPAN><SPAN>行</SPAN><SPAN>，</SPAN><SPAN>行索引</SPAN><SPAN>从0开始。</SPAN><SPAN><SPAN><SPAN>此</SPAN><SPAN>方法是</SPAN><SPAN>1.3版本特有的</SPAN><SPAN>。</SPAN></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>uncheckRow</TD>
+    <TD>index</TD>
+    <TD><SPAN>取消<SPAN>检查</SPAN></SPAN><SPAN>行</SPAN><SPAN>，</SPAN><SPAN>行索引</SPAN><SPAN>从0开始。</SPAN><SPAN><SPAN><SPAN>此</SPAN><SPAN>方法是</SPAN><SPAN>1.3版本特有的</SPAN><SPAN>。</SPAN></SPAN></SPAN></TD></TR>
+  <TR>
+    <TD>beginEdit</TD>
+    <TD>index</TD>
+    <TD>开始编辑一行。</TD></TR>
+  <TR>
+    <TD>endEdit</TD>
+    <TD>index</TD>
+    <TD>结束编辑。</TD></TR>
+  <TR>
+    <TD>cancelEdit</TD>
+    <TD>index</TD>
+    <TD>取消编辑。</TD></TR>
+  <TR>
+    <TD>getEditors</TD>
+    <TD>index</TD>
+    <TD>获取指定行的编辑器，每个编辑器有如下属性：<BR>actions：编辑器可以做的行为。<BR>target：目标编辑器jQuery对象。<BR>field：字段名。<BR>type：编辑器类型。</TD></TR>
+  <TR>
+    <TD>getEditor</TD>
+    <TD>options</TD>
+    <TD>获取特定的编辑器，options参数有2个属性：<BR>index：行索引。<BR>field:字段名。
+      <P>示例:</P><PRE>// get the datebox editor and change its value
+var ed = $('#dg').datagrid('getEditor', {index:1,field:'birthday'});
+$(ed.target).datebox('setValue', '5/4/2012');
+</PRE></TD></TR>
+  <TR>
+    <TD>refreshRow</TD>
+    <TD>index</TD>
+    <TD>刷新一行。</TD></TR>
+  <TR>
+    <TD>validateRow</TD>
+    <TD>index</TD>
+    <TD>校验指定的行，如果有效返回true。</TD></TR>
+  <TR>
+    <TD>updateRow</TD>
+    <TD>param</TD>
+    <TD>更新指定的行，param参数包含如下属性：<BR>index：要更新的行索引。<BR>row：新的行数据。
+      <P>示例:</P><PRE>$('#dg').datagrid('updateRow',{
+	index: 2,
+	row: {
+		name: 'new name',
+		note: 'new note message'
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>appendRow</TD>
+    <TD>row</TD>
+    <TD>添加一行。 <SPAN>新的行</SPAN><SPAN>会被添加到</SPAN><SPAN>最后一个位置</SPAN>: <PRE style="COLOR: #006600">$('#dg').datagrid('appendRow',{
+	name: 'new name',
+	age: 30,
+	note: 'some messages'
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>insertRow</TD>
+    <TD>param</TD>
+    <TD>
+      <DIV>插入一个新行，param参数包含如下属性：<BR>index：要插入的行索引，如果没有定义则在最后面添加一个新行。<BR>row：行数据。</DIV>
+      <DIV>示例: </DIV><PRE style="COLOR: #006600">// insert a new row at second row position
+$('#dg').datagrid('insertRow',{
+	index: 1,	// index start with 0
+	row: {
+		name: 'new name',
+		age: 30,
+		note: 'some messages'
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>deleteRow</TD>
+    <TD>index</TD>
+    <TD>删除一行。</TD></TR>
+  <TR>
+    <TD>getChanges</TD>
+    <TD>type</TD>
+    <TD>获取从最后一次提交开始的被修改的所有行，type参数表明修改的类型，可选值：inserted，deleted，updated等 
+      。当没有传递type参数时，返回所有被修改的行。</TD></TR>
+  <TR>
+    <TD>acceptChanges</TD>
+    <TD>none</TD>
+    <TD>提交所有修改的数据，提交后的数据将不能再修改或者回滚。</TD></TR>
+  <TR>
+    <TD>rejectChanges</TD>
+    <TD>none</TD>
+    <TD><SPAN>回滚<SPAN>自创建以来</SPAN></SPAN><SPAN>或</SPAN><SPAN>自上次</SPAN><SPAN>调用AcceptChanges<SPAN>，</SPAN>所有<SPAN>的变化</SPAN><SPAN>数据</SPAN></SPAN><SPAN>。</SPAN></TD></TR>
+  <TR>
+    <TD>mergeCells</TD>
+    <TD>options</TD>
+    <TD>合并单元格，options参数包含如下属性：<BR>index：行索引。<BR>field：字段名。<BR>rowspan：整合单元格要跨的行数。<BR>colspan：整合单元格要跨的列数。</TD></TR>
+  <TR>
+    <TD>showColumn</TD>
+    <TD>field</TD>
+    <TD>显示特定的列。</TD></TR>
+  <TR>
+    <TD>hideColumn</TD>
+    <TD>field</TD>
+    <TD>隐藏特定的列。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-datagrid');
+		</SCRIPT>
+</BODY></HTML>

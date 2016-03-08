@@ -1,0 +1,240 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>pagination - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm" tppabs="http://jeasyui.com/index.php">jQuery 
+      EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff">
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+      框架帮助你轻松建立站点。</A></DIV></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>分页 -&nbsp; Pagination</H3>
+<P>使用$.fn.pagination.defaults重载默认值。</P>
+<P>这个分页允许用户导航数据页面。它支持可配置选项页面导航和页面长度的选择。用户可以添加自定义按钮在正确的分页,增强其功能。&nbsp;</P><IMG 
+src="images/pagination.png" 
+tppabs="http://jeasyui.com/documentation/images/pagination.png"> 
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="linkbutton.php.htm">链接按钮 - linkbutton </A></LI></UL>
+<H4>使用方法（Usage Example）</H4>
+<P>创建分页标记。</P><TEXTAREA class=html name=code-pagination>	&lt;div id="pp" class="easyui-pagination" data-options="total:2000,pageSize:10" style="background:#efefef;border:1px solid #ccc;"&gt;&lt;/div&gt;
+</TEXTAREA> 
+<P>使用javascript创建分页。</P><TEXTAREA class=html name=code-pagination>	&lt;div id="pp" style="background:#efefef;border:1px solid #ccc;"&gt;&lt;/div&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-pagination>	$('#pp').pagination({
+		total:2000,
+		pageSize:10
+	});
+</TEXTAREA> 
+<P>让我们创建ajax分页与面板和分页的插件。当用户选择一个新页面,面板将显示相应的内容的页面指定。&nbsp;</P><TEXTAREA class=html name=code-pagination>	&lt;div id="content" class="easyui-panel" style="height:200px"
+			data-options="href:'show_content.php?page=1'"&gt;
+	&lt;/div&gt;
+	&lt;div class="easyui-pagination" style="border:1px solid #ccc;"
+			data-options="
+				total: 2000,
+				pageSize: 10,
+				onSelectPage: function(pageNumber, pageSize){
+					$('#content').panel('refresh', 'show_content.php?page='+pageNumber);
+				}"&gt;
+	&lt;/div&gt;
+</TEXTAREA> 
+<P>上面的面板显示第一个页面内容默认情况下。当用户浏览这个页面,“onSelectPage”事件将被触发,在我们所谓的“刷新”方法内容面板加载新页内容与一个新的URL参数。 
+</P>
+<H4>属性（Properties）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>total</TD>
+    <TD>number</TD>
+    <TD>总记录数，当创建分页时必须设置。</TD>
+    <TD>1</TD></TR>
+  <TR>
+    <TD>pageSize</TD>
+    <TD>number</TD>
+    <TD>每页显示的记录数。</TD>
+    <TD>10</TD></TR>
+  <TR>
+    <TD>pageNumber</TD>
+    <TD>number</TD>
+    <TD>当分页创建完毕时显示当前页码。</TD>
+    <TD>1</TD></TR>
+  <TR>
+    <TD>pageList</TD>
+    <TD>array</TD>
+    <TD>用户能够改变每页显示的记录数。 
+      <P>示例:</P><PRE>$('#pp').pagination({
+	pageList: [10,20,50,100]
+});
+</PRE></TD>
+    <TD>[10,20,30,50]</TD></TR>
+  <TR>
+    <TD>loading</TD>
+    <TD>boolean</TD>
+    <TD>定义数据是否正在载入。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>buttons</TD>
+    <TD>array</TD>
+    <TD>自定义按钮，每个按钮包含2个属性:<BR>iconCls： 显示背景图片的CSS类<BR>handler： 当按钮被点击时调用的一个句柄函数 
+
+      <P>The customize buttons can be declared from markup:</P><PRE>&lt;div class="easyui-pagination" style="border:1px solid #ccc" data-options="
+		total: 114,
+		buttons: [{
+			iconCls:'icon-add',
+			handler:function(){alert('add')}
+		},'-',{
+			iconCls:'icon-save',
+			handler:function(){alert('save')}
+		}]"&gt;
+&lt;/div&gt;
+</PRE>
+      <P>The customize buttons can also be created using javascript:</P><PRE>$('#pp').pagination({
+	total: 114,
+	buttons: [{
+		iconCls:'icon-add',
+		handler:function(){alert('add')}
+	},'-',{
+		iconCls:'icon-save',
+		handler:function(){alert('save')}
+	}]
+});
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>showPageList</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示可选择的每页记录数。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>showRefresh</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示刷新按钮。</TD>
+    <TD>true</TD></TR>
+  <TR>
+    <TD>beforePageText</TD>
+    <TD>string</TD>
+    <TD>在输入框之前显示的符号。</TD>
+    <TD>Page</TD></TR>
+  <TR>
+    <TD>afterPageText</TD>
+    <TD>string</TD>
+    <TD>在输入框之后显示的符号。</TD>
+    <TD>of {pages}</TD></TR>
+  <TR>
+    <TD>displayMsg</TD>
+    <TD>string</TD>
+    <TD>在插件右上方显示分页信息。</TD>
+    <TD>Displaying {from} to {to} of {total} items</TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>onSelectPage</TD>
+    <TD>pageNumber, pageSize</TD>
+    <TD>当用户进行翻页时触发，回调函数包含2个参数:<BR>pageNumber： 下一页的页码<BR>pageSize： 下一页的显示记录数 
+      <P>示例:</P><PRE>$('#pp').pagination({
+	onSelectPage:function(pageNumber, pageSize){
+		$(this).pagination('loading');
+		alert('pageNumber:'+pageNumber+',pageSize:'+pageSize);
+		$(this).pagination('loaded');
+	}
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>onBeforeRefresh</TD>
+    <TD>pageNumber, pageSize</TD>
+    <TD>刷新之前触发, 返回false将取消刷新。</TD></TR>
+  <TR>
+    <TD>onRefresh</TD>
+    <TD>pageNumber, pageSize</TD>
+    <TD>刷新之后触发。</TD></TR>
+  <TR>
+    <TD>onChangePageSize</TD>
+    <TD>pageSize</TD>
+    <TD>当用户修改每页显示记录数时触发。</TD></TR></TBODY></TABLE>
+<H4>方法（Methods）</H4>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>options</TD>
+    <TD>none</TD>
+    <TD>返回分页属性对象。</TD></TR>
+  <TR>
+    <TD>loading</TD>
+    <TD>none</TD>
+    <TD>提醒分页插件正在载入。</TD></TR>
+  <TR>
+    <TD>loaded</TD>
+    <TD>none</TD>
+    <TD>提醒分页插件已经载入。</TD></TR>
+  <TR>
+    <TD>refresh</TD>
+    <TD>options</TD>
+    <TD>
+      <DIV>刷新并显示信息。这个方法版本1.3可用。。</DIV>
+      <DIV><BR>示例:</DIV><PRE>$('#pp').pagination('refresh');	// 刷新页面右栏的信息
+$('#pp').pagination('refresh',{	// 改变选项并刷新页面右栏的信息
+	total: 114,
+	pageNumber: 6
+});
+</PRE></TD></TR>
+  <TR>
+    <TD>select</TD>
+    <TD>page</TD>
+    <TD>选择一个新页面。页面索引从1开始。这个方法版本1.3可用。<BR>
+      <P>示例:</P><PRE>$('#pp').pagination('select');	// refresh the current page
+$('#pp').pagination('select', 2);	// select the second page
+</PRE></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-pagination');
+		</SCRIPT>
+</BODY></HTML>

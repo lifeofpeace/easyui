@@ -1,0 +1,186 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>dialog - Documentation - jQuery EasyUI</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<META name=keywords 
+content="jquery,ui,easy,easyui,web framekwork,ajax framekwork,ria,web development">
+<META name=description 
+content="easyui help you build your web page easily!"><LINK rel=stylesheet 
+type=text/css href="../css/main.css" 
+tppabs="http://jeasyui.com/css/main.css"><LINK rel=stylesheet type=text/css 
+href="../SyntaxHighlighter/Styles/SyntaxHighlighter.css" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Styles/SyntaxHighlighter.css"></LINK>
+<SCRIPT src="../SyntaxHighlighter/Scripts/shCore.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shCore.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushJScript.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushJScript.js"></SCRIPT>
+
+<SCRIPT src="../SyntaxHighlighter/Scripts/shBrushXml.js" 
+tppabs="http://jeasyui.com/SyntaxHighlighter/Scripts/shBrushXml.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16455"></HEAD>
+<BODY>
+<DIV id=header>
+<DIV id=header-inner>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 20px" rowSpan=2></TD>
+    <TD style="HEIGHT: 52px">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold">
+      <DIV style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold"><A 
+      style="COLOR: #fff; FONT-SIZE: 22px; FONT-WEIGHT: bold; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI</A> </DIV>
+      <DIV style="COLOR: #fff"><A style="COLOR: #fff; TEXT-DECORATION: none" 
+      href="../index.htm">jQuery EasyUI 
+    框架帮助你轻松建立站点。</A></DIV></DIV></TD>
+    <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 5px; VERTICAL-ALIGN: bottom">
+      <DIV id=topmenu>&nbsp;&nbsp; </DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=mainwrap>
+<DIV id=content>
+<DIV 
+style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px">
+<H3>对话窗口 - Dialog</H3>
+<P>继承$.fn.window.defaults，使用$.fn.dialog.defaults重载默认值。</P>
+<P><SPAN>该对话框是</SPAN><SPAN>一种特殊类型的</SPAN><SPAN>窗口，它可以</SPAN><SPAN>有一个工具栏</SPAN><SPAN>上</SPAN><SPAN>的顶部和</SPAN><SPAN>底部</SPAN><SPAN>的</SPAN><SPAN>按钮栏</SPAN><SPAN>。</SPAN><SPAN>该对话框</SPAN><SPAN>只有一个</SPAN><SPAN>头</SPAN><SPAN>默认情况下，</SPAN><SPAN>显示在</SPAN><SPAN>右上角的</SPAN><SPAN>关闭</SPAN><SPAN>工具</SPAN><SPAN>。</SPAN><SPAN>用户可以</SPAN><SPAN>配置对话框</SPAN><SPAN>显示</SPAN><SPAN>，</SPAN><SPAN>如</SPAN><SPAN>可折叠，</SPAN><SPAN>可最小化</SPAN><SPAN>的maximizable</SPAN><SPAN>工具</SPAN><SPAN>等</SPAN><SPAN>其他工具</SPAN><SPAN>的</SPAN><SPAN>行为。</SPAN></P><IMG 
+src="images/dialog.png" 
+tppabs="http://jeasyui.com/documentation/images/dialog.png"> 
+<H4>依赖组件（Dependencies）</H4>
+<UL>
+  <LI><A href="window.php.htm">窗口 - window</A> 
+  <LI><A href="linkbutton.php.htm">链接按钮 - linkbutton </A></LI></UL>
+<H4>使用方法（Usage）</H4>
+<P><SPAN>通过</SPAN><SPAN>从现有的DOM</SPAN><SPAN>节点</SPAN><SPAN>的</SPAN><SPAN>标签<SPAN 
+class=atn>创建对话窗口</SPAN></SPAN><SPAN>。</SPAN><SPAN>下面的例子</SPAN><SPAN>显示了一个</SPAN><SPAN>模</SPAN><SPAN>态</SPAN><SPAN>对话框，</SPAN><SPAN>调整大小的</SPAN><SPAN>功能</SPAN><SPAN>。</SPAN>. 
+</P><TEXTAREA class=html name=code-dialog>	&lt;div id="dd" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+			data-options="iconCls:'icon-save',resizable:true,modal:true"&gt;
+		Dialog Content.
+	&lt;/div&gt;
+</TEXTAREA> 
+<P><SPAN>使用JavaScript</SPAN><SPAN>创建</SPAN><SPAN>对话框</SPAN><SPAN>也是允许的。</SPAN><SPAN>现在</SPAN><SPAN>，</SPAN><SPAN>让我们创建</SPAN><SPAN>一个模态对话框</SPAN><SPAN>，然后调用</SPAN><SPAN 
+class=atn>“refresh”</SPAN><SPAN>方法</SPAN><SPAN>通过Ajax</SPAN><SPAN>加载</SPAN><SPAN>的</SPAN><SPAN>内容。</SPAN></P><TEXTAREA class=html name=code-dialog>	&lt;div id="dd"&gt;Dialog Content.&lt;/div&gt;
+</TEXTAREA> <TEXTAREA class=js name=code-dialog>	$('#dd').dialog({
+		title: 'My Dialog',
+		width: 400,
+		height: 200,
+		closed: false,
+		cache: false,
+		href: 'get_content.php',
+		modal: true
+	});
+	$('#dd').dialog('refresh', 'new_content.php');
+</TEXTAREA> <BR>
+<H4>属性（Properties）</H4>
+<P>属性继承窗口，以下是对话窗口的属性。</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>类型</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH>
+    <TH><STRONG>默认值</STRONG></TH></TR>
+  <TR>
+    <TD>title</TD>
+    <TD>string</TD>
+    <TD>对话标题。</TD>
+    <TD>New Dialog</TD></TR>
+  <TR>
+    <TD>collapsible</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示折叠按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>minimizable</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示最小化按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>maximizable</TD>
+    <TD>boolean</TD>
+    <TD>定义是否显示最大化按钮。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>resizable</TD>
+    <TD>boolean</TD>
+    <TD>定义对话窗口是否可以被缩放。</TD>
+    <TD>false</TD></TR>
+  <TR>
+    <TD>toolbar</TD>
+    <TD>array,selector</TD>
+    <TD>对话窗口顶部的工具栏，每个工具的属性都跟链接按钮的属性一样。:<BR><SPAN>1）</SPAN><SPAN>数组，每个</SPAN><SPAN>工具选项</SPAN><SPAN 
+      class=alt-edited>和链接按钮</SPAN><SPAN>相同</SPAN><SPAN>。</SPAN><BR><SPAN>2）</SPAN><SPAN>选择</SPAN><SPAN>显示</SPAN><SPAN>的工具栏</SPAN><SPAN>。</SPAN>. 
+
+      <P><SPAN>工具栏可以</SPAN><SPAN>定义</SPAN><SPAN>在</SPAN><SPAN>一个&lt;div&gt;</SPAN><SPAN>的</SPAN><SPAN>标签内</SPAN>:</P><PRE>&lt;div class="easyui-dialog" style="width:600px;height:300px"
+		data-options="title:'My Dialog',toolbar:'#tb',modal:true"&gt;
+	Dialog Content.
+&lt;/div&gt;
+&lt;div id="tb"&gt;
+&lt;a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/a&gt;
+&lt;a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/a&gt;
+&lt;/div&gt;
+</PRE>
+      <P><SPAN>该对话框</SPAN><SPAN>工具</SPAN><SPAN>栏</SPAN><SPAN>也可以</SPAN><SPAN>通过</SPAN><SPAN 
+      class=alt-edited>数组定义</SPAN>:</P><PRE>&lt;div class="easyui-dialog" style="width:600px;height:300px"
+		data-options="title:'My Dialog',modal:true,
+			toolbar:[{
+				text:'Edit',
+				iconCls:'icon-edit',
+				handler:function(){alert('edit')}
+			},{
+				text:'Help',
+				iconCls:'icon-help',
+				handler:function(){alert('help')}
+			}]"&gt;
+	Dialog Content.
+&lt;/div&gt;
+</PRE></TD>
+    <TD>null</TD></TR>
+  <TR>
+    <TD>buttons</TD>
+    <TD>array,selector</TD>
+    <TD>对话窗口底部的按钮，每个按钮的属性都跟链接按钮一样。:<BR>1) an array, each button options is 
+      same as linkbutton.<BR>2) a selector that indicating the button bar. 
+      <P><SPAN>按钮可以</SPAN><SPAN>定义</SPAN><SPAN>在</SPAN><SPAN>一个&lt;div&gt;</SPAN><SPAN>的</SPAN><SPAN>标签内</SPAN>:</P><PRE>&lt;div class="easyui-dialog" style="width:600px;height:300px"
+		data-options="title:'My Dialog',buttons:'#bb',modal:true"&gt;
+	Dialog Content.
+&lt;/div&gt;
+&lt;div id="bb"&gt;
+	&lt;a href="#" class="easyui-linkbutton"&gt;Save&lt;/a&gt;
+	&lt;a href="#" class="easyui-linkbutton"&gt;Close&lt;/a&gt;
+&lt;/div&gt;
+</PRE>
+      <P><SPAN>该对话框</SPAN><SPAN>按钮</SPAN><SPAN>也可以</SPAN><SPAN>通过</SPAN><SPAN 
+      class=alt-edited>数组定义</SPAN>:</P><PRE>&lt;div class="easyui-dialog" style="width:600px;height:300px"
+		data-options="title:'My Dialog',modal:true,
+			buttons:[{
+				text:'Save',
+				handler:function(){...}
+			},{
+				text:'Close',
+				handler:function(){...}
+			}]"&gt;
+	Dialog Content.
+&lt;/div&gt;
+</PRE></TD>
+    <TD>null</TD></TR></TBODY></TABLE>
+<H4>事件（Events）</H4>
+<P>继承窗口 - &nbsp;window事件。</P>
+<H4>方法（Methods）</H4>
+<P>方法继承窗口，以下是对话窗口独有的方法。</P>
+<TABLE class=doc-table>
+  <TBODY>
+  <TR>
+    <TH><STRONG>名称</STRONG></TH>
+    <TH><STRONG>属性</STRONG></TH>
+    <TH><STRONG>描述</STRONG></TH></TR>
+  <TR>
+    <TD>dialog</TD>
+    <TD>none</TD>
+    <TD>返回对话窗口对象。</TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV id=footer>
+<DIV>Copyright © 2010-2012 www.jeasyui.com</DIV></DIV>
+<SCRIPT type=text/javascript>
+						dp.SyntaxHighlighter.ClipboardSwf = '../SyntaxHighlighter/Scripts/clipboard.swf'/*tpa=http://jeasyui.com/SyntaxHighlighter/Scripts/clipboard.swf*/;
+			dp.SyntaxHighlighter.HighlightAll('code-dialog');
+		</SCRIPT>
+</BODY></HTML>
